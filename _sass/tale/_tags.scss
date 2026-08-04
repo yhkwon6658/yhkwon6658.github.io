@@ -37,15 +37,20 @@
   }
 
   &-item {
-    &-icon {
-      height: 1rem;
-    }
+    // 기존에 있던 &-icon { ... } 부분은 삭제합니다.
 
     &-label {
       display: inline-block;
       margin: 2rem 0 0.5rem;
       font-family: $sans-serif;
       color: $default-color;
+
+      /* SVG 대신 CSS로 해시태그 디자인 삽입 */
+      &::before {
+        content: '# ';
+        color: $default-tint;
+        margin-right: 0.3rem;
+      }
     }
   }
 
@@ -87,21 +92,3 @@
     }
   }
 }
-
-&-item {
-    // 기존에 있던 &-icon { ... } 부분은 삭제합니다.
-
-    &-label {
-      display: inline-block;
-      margin: 2rem 0 0.5rem;
-      font-family: $sans-serif;
-      color: $default-color;
-
-      /* SVG 대신 CSS로 해시태그 디자인 삽입 */
-      &::before {
-        content: '# ';
-        color: $default-tint;
-        margin-right: 0.3rem;
-      }
-    }
-  }
