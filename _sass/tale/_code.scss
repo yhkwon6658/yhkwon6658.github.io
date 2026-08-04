@@ -1,6 +1,7 @@
 pre,
 code {
-  font-family: $monospaced;
+  font-family: 'JetBrains Mono', $monospaced, monospace;
+  font-variant-ligatures: contextual; /* 폰트 합자(Ligatures) 기능 활성화 */
 }
 
 /* ==========================================================================
