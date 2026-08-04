@@ -233,13 +233,17 @@ div.language-sql .highlight::before { content: "SQL"; }
 div.language-markdown .highlight::before, div.language-md .highlight::before { content: "Markdown"; }
 
 /* ==========================================================================
-   5. 코드 블록 내부 텍스트 드래그 (선택) 색상 최적화
+   5. 코드 블록 내부 텍스트 드래그 (선택) 색상 고정 및 최적화
    ========================================================================== */
-.highlight ::selection {
-  background-color: rgba(171, 178, 191, 0.2); /* 은은한 회색 투명 배경 */
-  color: inherit; /* 구문 강조 색상(Syntax Highlighting) 유지 */
+/* 다크 모드 전역 설정보다 우선순위를 높이기 위해 선택자 추가 확장 */
+.highlight ::selection,
+body.dark-mode .highlight ::selection {
+  background-color: rgba(171, 178, 191, 0.2); /* 은은한 회색 투명 배경 유지 */
+  color: inherit; 
 }
-.highlight ::-moz-selection {
+
+.highlight ::-moz-selection,
+body.dark-mode .highlight ::-moz-selection {
   background-color: rgba(171, 178, 191, 0.2);
   color: inherit;
 }

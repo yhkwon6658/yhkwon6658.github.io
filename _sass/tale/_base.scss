@@ -158,23 +158,22 @@ body.dark-mode {
 }
 
 /* 전역 스타일 파일에 추가 (예: _sass/tale/_base.scss) */
-
-/* 1-1. 기본 (라이트 모드) 본문 드래그 색상 */
+/* 1. 화이트 모드 (기본) 본문 드래그 - 초록색 계열 */
 ::selection {
-  background-color: rgba(56, 189, 248, 0.3); /* 연한 스카이블루 */
-  color: inherit; /* 글씨 색상을 흰색으로 강제 반전시키지 않고 유지 */
+  background-color: rgba(34, 197, 94, 0.3); 
+  color: inherit;
 }
 ::-moz-selection {
-  background-color: rgba(56, 189, 248, 0.3);
+  background-color: rgba(34, 197, 94, 0.3);
   color: inherit;
 }
 
-/* 1-2. 다크 모드 본문 드래그 색상 */
+/* 2. 다크 모드 본문 드래그 - 노란색 계열 */
 body.dark-mode ::selection {
-  background-color: rgba(97, 175, 239, 0.4); /* 다크 모드에 어울리는 파란색 */
+  background-color: rgba(234, 179, 8, 0.4); 
   color: inherit;
 }
 body.dark-mode ::-moz-selection {
-  background-color: rgba(97, 175, 239, 0.4);
+  background-color: rgba(234, 179, 8, 0.4);
   color: inherit;
 }
