@@ -37,32 +37,32 @@
   <!-- 코드 블록 복사 버튼 스크립트 추가 -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // 최상위 컨테이너인 highlighter-rouge를 모두 탐색합니다.
         var codeBlocks = document.querySelectorAll('div.highlighter-rouge');
-    
+
+        // 복사 아이콘 (기본 상태)
+        var iconCopy = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>';
+        
+        // 체크 아이콘 (복사 완료 상태)
+        var iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>';
+
         codeBlocks.forEach(function(block) {
-            // 복사 버튼 요소를 생성합니다.
             var button = document.createElement('button');
             button.className = 'copy-btn';
             button.type = 'button';
-            button.innerText = 'Copy';
-        
-            // 생성한 버튼을 코드 블록 컨테이너에 추가합니다.
+            button.innerHTML = iconCopy; // 텍스트 대신 SVG 아이콘 삽입
+
             block.appendChild(button);
-        
-            // 버튼 클릭 이벤트를 정의합니다.
+
             button.addEventListener('click', function() {
                 var code = block.querySelector('code');
                 var text = code.innerText;
-            
-                // Clipboard API를 사용하여 텍스트를 복사합니다.
+
                 navigator.clipboard.writeText(text).then(function() {
-                    button.innerText = 'Copied!';
+                    button.innerHTML = iconCheck; // 복사 완료 시 체크 아이콘으로 변경
                     button.classList.add('copied');
-                
-                    // 2초 후 원래 상태로 복구합니다.
+
                     setTimeout(function() {
-                        button.innerText = 'Copy';
+                        button.innerHTML = iconCopy; // 2초 후 원래 아이콘으로 복구
                         button.classList.remove('copied');
                     }, 2000);
                 });
