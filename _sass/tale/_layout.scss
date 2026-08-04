@@ -14,9 +14,15 @@ footer,
 }
 
 .nav {
-  box-shadow: none !important; /* 👈 지저분한 그림자 원인 제거 */
-  border-bottom: 1px solid $grey-2; /* 👈 하단 선과 동일한 실선 테두리 적용 */
+  box-shadow: none !important; /* 지저분한 그림자 원인 제거[cite: 19] */
+  border-bottom: 1px solid $grey-2; /* 하단 선과 동일한 실선 테두리 적용[cite: 19] */
   overflow: auto;
+
+  /* 밤 모드일 때 상단 구분선 색상을 하단 선 변수($grey-2 기반 다크 톤)와 완벽히 동기화 */
+  body.dark-mode & {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background-color: #121212;
+  }
 
   &-container {
     margin: 1rem auto;
@@ -100,6 +106,6 @@ footer {
   
   &:hover {
     transform: scale(1.1);
-    @include transition(transform .2s ease-in-out); /* Tale 테마의 기본 애니메이션 믹스인 활용 */
+    @include transition(transform .2s ease-in-out); /* Tale 테마의 기본 애니메이션 믹스인 활용[cite: 19] */
   }
 }
