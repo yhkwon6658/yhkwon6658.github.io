@@ -23,7 +23,7 @@
     color: $default-color;
     font-family: $sans-serif;
     font-size: 1.1rem;
-    opacity: .6;
+    opacity: .7;
 
     &:hover {
       opacity: 1;
@@ -31,7 +31,6 @@
 
     body.dark-mode & {
       color: #cccccc !important;
-      opacity: 0.9; // 투명도를 높여 페이지 숫자와 동일한 수준의 밝기 확보
     }
   }
 
