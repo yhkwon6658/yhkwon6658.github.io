@@ -1,3 +1,4 @@
+/* Giscus 라이트 모드 - Clean & Modern Style */
 main {
   --color-canvas-default: #ffffff;
   --color-canvas-subtle: #f8fafc;
@@ -20,12 +21,44 @@ main {
   color: inherit;
 }
 
-.form-control, textarea.form-control, .TextInput {
+/* 컴포넌트 디자인 정리 (글자 색상 변수 추가) */
+.form-control, 
+textarea.form-control,
+.TextInput {
   border-radius: 8px !important;
   border-color: var(--color-border-default) !important;
   background-color: var(--color-canvas-default) !important;
   box-shadow: none !important;
+  color: var(--color-fg-default) !important;
 }
-.btn { border-radius: 8px !important; font-weight: 500 !important; }
-.btn-primary { background-color: #10b981 !important; border-color: #10b981 !important; color: #ffffff !important; }
-.timeline-comment, .comment { border-radius: 10px !important; border: 1px solid var(--color-border-default) !important; }
+
+.form-control:focus, 
+textarea.form-control:focus {
+  border-color: var(--color-accent-fg) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+
+.btn {
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-primary {
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background-color: #059669 !important;
+  border-color: #059669 !important;
+}
+
+.timeline-comment,
+.comment {
+  border-radius: 10px !important;
+  border: 1px solid var(--color-border-default) !important;
+  background-color: var(--color-canvas-default) !important;
+  color: var(--color-fg-default) !important;
+}
