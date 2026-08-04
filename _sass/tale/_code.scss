@@ -25,8 +25,8 @@ div.highlighter-rouge, figure.highlight {
   margin: 1.5em 0;
   padding: 50px 15px 15px 15px;
   overflow: hidden;
-  box-sizing: border-box; /* 추가: 가로/세로 크기 계산 기준 변경 */
-  max-width: 100%; /* 추가: 가로 접힘 애니메이션을 위한 기본 너비 설정 */
+  box-sizing: border-box; /* 가로/세로 크기 계산 기준 변경 */
+  max-width: 100%; /* 가로 접힘 애니메이션을 위한 기본 너비 설정 */
   transition: all 0.3s ease; /* 접힘/펼침 애니메이션 부드럽게 */
 
   /* 접힘 상태 (노란색 버튼 클릭 시) - 본문만 숨김 */
@@ -66,6 +66,7 @@ div.highlighter-rouge, figure.highlight {
     padding: 0;
     border-radius: 0;
     position: relative; 
+    display: flex; /* 라인 넘버와 코드 본문을 가로로 나란히 배치하기 위한 속성 */
 
     /* 상단 버튼 옆에 출력될 블록 제목 요소 */
     &::before {
@@ -80,6 +81,26 @@ div.highlighter-rouge, figure.highlight {
     }
   }
 
+  /* 라인 넘버 영역 디자인 */
+  .line-numbers {
+    display: flex;
+    flex-direction: column;
+    padding-right: 12px; /* 코드 영역과의 우측 간격 */
+    margin-right: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08); /* 옅은 세로 구분선 */
+    text-align: right;
+    color: #5c6370; /* 주석 색상과 비슷하게 시선이 분산되지 않는 어두운 색상 */
+    font-size: 90%;
+    font-family: 'JetBrains Mono', $monospaced, monospace;
+    line-height: 1.5; /* 코드 라인 높이와 완벽히 일치하도록 고정 */
+    
+    /* 마우스 드래그 선택 방지 */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
   pre {
     background: transparent;
     border: none;
@@ -87,6 +108,7 @@ div.highlighter-rouge, figure.highlight {
     padding: 0;
     color: #abb2bf;
     overflow-x: auto;
+    flex: 1; /* 코드 영역이 우측 남은 공간을 모두 차지하도록 설정 */
   }
 
   code {
@@ -94,6 +116,8 @@ div.highlighter-rouge, figure.highlight {
     color: inherit;
     font-size: 90%;
     padding: 0;
+    line-height: 1.5; /* 라인 넘버와 줄 높이가 어긋나지 않도록 명시적 고정 */
+    display: block;
   }
 
   /* 새로 추가: 우측 상단 복사 아이콘 버튼 디자인 */

@@ -115,6 +115,36 @@
                 block.classList.remove('collapsed-yellow');
                 block.classList.remove('collapsed-red');
             });
+
+            // --- [신규 추가] 라인 넘버 생성 로직 ---
+            var codeElement = block.querySelector('code');
+            var highlightDiv = block.querySelector('.highlight');
+            var preElement = block.querySelector('pre');
+
+            if (codeElement && highlightDiv && preElement) {
+              // 코드 텍스트를 가져와서 줄바꿈(\n) 기준으로 배열을 만듭니다.
+              var codeText = codeElement.textContent;
+              var lines = codeText.split('\n');
+                  
+              // 마지막 빈 줄이 존재할 경우 제외
+              if (lines[lines.length - 1] === '') {
+                lines.pop(); 
+              }
+
+              // 라인 넘버를 담을 좌측 컨테이너 생성
+              var lineNumbersContainer = document.createElement('div');
+              lineNumbersContainer.className = 'line-numbers';
+
+              // 줄 수만큼 숫자(span) 생성
+              for (var i = 1; i <= lines.length; i++) {
+                var lineSpan = document.createElement('span');
+                lineSpan.innerText = i;
+                lineNumbersContainer.appendChild(lineSpan);
+              }
+
+              // <pre> 태그 바로 앞(좌측)에 라인 넘버 컨테이너 삽입
+              highlightDiv.insertBefore(lineNumbersContainer, preElement);
+            }
         });
     });
   </script>
