@@ -66,7 +66,7 @@ td {
 }
 
 /* ==========================================================================
-   공통 태그 뱃지 스타일 (Home, Post, Tags 페이지에서 사용)[cite: 11]
+   공통 태그 뱃지 스타일 (Home, Post, Tags 페이지에서 사용)
    ========================================================================== */
 .tag-badge {
   display: inline-block;
@@ -93,7 +93,7 @@ td {
 }
 
 /* ==========================================================================
-   Dark Mode Global Styles[cite: 11]
+   Dark Mode Global Styles
    ========================================================================== */
 body.dark-mode {
   background-color: #121212;
@@ -108,12 +108,12 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 💡 핵심 수정: 원본 상단 긴 구분선의 위치/길이는 그대로 두고, 밤 모드에서의 색상만 하단 선과 일치시킴 */
-  header {
-    border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+  /* 💡 핵심 해결: 밤 모드일 때 네비게이션 하단 구분선(그림자) 색상을 하단 선과 동일하게 부드러운 톤으로 동기화 */
+  .nav {
+    box-shadow: 0 2px 2px -2px rgba(255, 255, 255, 0.15) !important;
   }
 
-  /* 1. 네비게이션 바 텍스트 색상[cite: 11] */
+  /* 1. 네비게이션 바 텍스트 색상 */
   .nav-container {
     background-color: #121212;
     
@@ -127,7 +127,7 @@ body.dark-mode {
     }
   }
 
-  /* 2. 글 제목 및 카테고리 타이틀[cite: 11] */
+  /* 2. 글 제목 및 카테고리 타이틀 */
   .post-title,
   .catalogue-title,
   .tags-item-label,
@@ -135,12 +135,12 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 3. 홈 화면 게시글 내용(본문 요약) 가독성 개선[cite: 11] */
+  /* 3. 홈 화면 게시글 내용(본문 요약) 가독성 개선 */
   .catalogue-item p {
     color: #cccccc;
   }
 
-  /* 4. 날짜, 작성자, 부가 정보, 페이징 숫자(1), Top 버튼 색상 통일[cite: 11] */
+  /* 4. 날짜, 작성자, 부가 정보, 페이징 숫자(1), Top 버튼 색상 통일 */
   .post-info,
   .post-info span,
   .catalogue-time,
@@ -151,13 +151,13 @@ body.dark-mode {
     color: #cccccc !important;
   }
 
-  /* 5. 다크 모드용 인라인 코드 색상[cite: 11] */
+  /* 5. 다크 모드용 인라인 코드 색상 */
   p > code, li > code, td > code {
     background-color: #333333;
     color: #ff7b72;
   }
 
-  /* 6. 다크 모드 - 공통 태그 뱃지[cite: 11] */
+  /* 6. 다크 모드 - 공통 태그 뱃지 */
   .tag-badge {
     background: rgba(255, 255, 255, 0.1);
     color: #e0e0e0;
