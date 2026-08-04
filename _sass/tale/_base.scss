@@ -108,9 +108,10 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 1. 네비게이션 바 */
+  /* 1. 네비게이션 바 및 하단 구분선 통일 */
   .nav-container {
     background-color: #121212;
+    border-bottom: 1px solid #333333; /* 👈 상단 패널 아래 구분선 색상 명시 */
     
     .nav-title {
       color: #ffffff;
@@ -130,22 +131,29 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 3. 날짜, 작성자, 부가 정보 (회색빛 텍스트) */
+  /* 3. 홈 화면 게시글 내용(본문 요약) 가독성 개선 */
+  .catalogue-item p {
+    color: #cccccc; /* 👈 너무 어두운 회색 대신 밝은 회색으로 변경하여 가독성 확보 */
+  }
+
+  /* 4. 날짜, 작성자, 부가 정보, 페이징 숫자(1), Top 버튼 색상 통일 */
   .post-info,
   .post-info span,
   .catalogue-time,
   .tags-post-meta time,
+  .pagination,
+  .pagination .top,
   footer span {
-    color: #a1a1aa;
+    color: #cccccc !important; /* 👈 숫자 1과 Top 버튼, 날짜 등의 색상을 밝게 통일 */
   }
 
-  /* 4. 다크 모드용 인라인 코드 색상 */
+  /* 5. 다크 모드용 인라인 코드 색상 */
   p > code, li > code, td > code {
     background-color: #333333;
     color: #ff7b72;
   }
 
-  /* 5. 다크 모드 - 공통 태그 뱃지 */
+  /* 6. 다크 모드 - 공통 태그 뱃지 */
   .tag-badge {
     background: rgba(255, 255, 255, 0.1);
     color: #e0e0e0;
@@ -154,7 +162,7 @@ body.dark-mode {
     &:hover { 
       background: rgba(255, 255, 255, 0.2); 
       color: #ffffff; 
-      text-decoration: underline; /* 👈 다크 모드에서도 마우스 오버 시 밑줄 생성 */
+      text-decoration: underline;
     }
   }
 }
