@@ -14,7 +14,7 @@ footer,
 }
 
 .nav {
-  /* box-shadow: 0 2px 2px -2px $shadow-color; 👈 지저분한 그림자 제거 */
+  box-shadow: none !important; /* 👈 지저분한 그림자 원인 제거 */
   border-bottom: 1px solid $grey-2; /* 👈 하단 선과 동일한 실선 테두리 적용 */
   overflow: auto;
 

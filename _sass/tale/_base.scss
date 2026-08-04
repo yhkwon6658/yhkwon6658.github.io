@@ -108,10 +108,20 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 💡 밤 모드 상단 구분선(실선)을 하단 구분선과 완벽히 동기화 */
+  /* 💡 밤 모드 상단 구분선 색상을 하단 구분선과 완벽히 동기화하고 그림자 완전 차단 */
   .nav {
+    background-color: #121212;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: none !important; /* 그림자 완전 차단 */
+    box-shadow: none !important;
+    
+    .nav-title {
+      color: #ffffff;
+    }
+    
+    a {
+      color: #e0e0e0;
+      &:hover { color: #ffffff; }
+    }
   }
 
   /* 1. 네비게이션 바 텍스트 색상 */
