@@ -231,3 +231,15 @@ div.language-yaml .highlight::before, div.language-yml .highlight::before { cont
 div.language-xml .highlight::before { content: "XML"; }
 div.language-sql .highlight::before { content: "SQL"; }
 div.language-markdown .highlight::before, div.language-md .highlight::before { content: "Markdown"; }
+
+/* ==========================================================================
+   5. 코드 블록 내부 텍스트 드래그 (선택) 색상 최적화
+   ========================================================================== */
+.highlight ::selection {
+  background-color: rgba(171, 178, 191, 0.2); /* 은은한 회색 투명 배경 */
+  color: inherit; /* 구문 강조 색상(Syntax Highlighting) 유지 */
+}
+.highlight ::-moz-selection {
+  background-color: rgba(171, 178, 191, 0.2);
+  color: inherit;
+}
