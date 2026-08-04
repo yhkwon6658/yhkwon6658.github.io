@@ -27,17 +27,14 @@
         isDark = false;
       }
 
-      // --- [수정] Giscus 커스텀 CSS 환경에서의 실시간 테마 토글 연동 ---
+      // --- [정상화] Giscus에 명확한 'dark' 또는 'light' 모드 신호 전달 ---
       const iframe = document.querySelector('iframe.giscus-frame');
       if (iframe) {
-        // 커스텀 CSS를 유지하면서 다크/라이트 상태를 전달하기 위해 URL 뒤에 파라미터를 붙여 강제 갱신
-        const cssPath = 'https://yhkwon6658.github.io/assets/css/giscus.css';
-        const themeValue = isDark ? cssPath + '#dark' : cssPath + '#light';
-
+        const theme = isDark ? 'dark' : 'light';
         iframe.contentWindow.postMessage({
           giscus: {
             setConfig: {
-              theme: themeValue
+              theme: theme
             }
           }
         }, 'https://giscus.app');

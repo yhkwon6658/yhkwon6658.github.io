@@ -13,6 +13,7 @@ main {
   --color-fg-muted: #64748b;
 }
 
+/* 라이트 모드 드래그 - 초록색 계열 */
 ::selection {
   background-color: rgba(34, 197, 94, 0.3);
   color: inherit;
@@ -24,12 +25,11 @@ main {
 
 
 /* ==========================================
-   2. 다크 모드 세팅 (다양한 속성 및 해시 변화 대응)
+   2. 다크 모드 세팅 (Giscus 다크 신호 감지)
    ========================================== */
 main[data-theme="dark"],
 .giscus-frame[data-theme="dark"],
-main[data-theme*="dark"],
-body[data-theme="dark"] {
+[data-theme*="dark"] {
   --color-canvas-default: #1e293b;
   --color-canvas-subtle: #0f172a;
   --color-border-default: #334155;
@@ -41,22 +41,23 @@ body[data-theme="dark"] {
   --color-fg-muted: #94a3b8;
 }
 
+/* 다크 모드 드래그 - 노란색 계열 */
 main[data-theme="dark"] ::selection,
 .giscus-frame[data-theme="dark"] ::selection,
-main[data-theme*="dark"] ::selection {
+[data-theme*="dark"] ::selection {
   background-color: rgba(234, 179, 8, 0.4);
   color: inherit;
 }
 main[data-theme="dark"] ::-moz-selection,
 .giscus-frame[data-theme="dark"] ::-moz-selection,
-main[data-theme*="dark"] ::-moz-selection {
+[data-theme*="dark"] ::-moz-selection {
   background-color: rgba(234, 179, 8, 0.4);
   color: inherit;
 }
 
 
 /* ==========================================
-   3. 컴포넌트 디자인 스타일 공통
+   3. 공통 컴포넌트 디자인
    ========================================== */
 .form-control, 
 textarea.form-control,
@@ -65,6 +66,7 @@ textarea.form-control,
   border-color: var(--color-border-default) !important;
   background-color: var(--color-canvas-default) !important;
   box-shadow: none !important;
+  color: var(--color-fg-default) !important;
 }
 
 .form-control:focus, 
@@ -94,4 +96,6 @@ textarea.form-control:focus {
 .comment {
   border-radius: 10px !important;
   border: 1px solid var(--color-border-default) !important;
+  background-color: var(--color-canvas-default) !important;
+  color: var(--color-fg-default) !important;
 }
