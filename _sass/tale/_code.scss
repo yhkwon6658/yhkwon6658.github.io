@@ -90,7 +90,7 @@ div.highlighter-rouge, figure.highlight {
     border-right: 1px solid rgba(255, 255, 255, 0.08); /* 옅은 세로 구분선 */
     text-align: right;
     color: #848d97; /* 또는 코드 기본 텍스트 색상인 #abb2bf 활용 가능 */
-    font-size: 90%;
+    font-size: 85%;
     font-family: 'JetBrains Mono', $monospaced, monospace;
     line-height: 1.5; /* 코드 라인 높이와 완벽히 일치하도록 고정 */
     
@@ -114,7 +114,7 @@ div.highlighter-rouge, figure.highlight {
   code {
     background: transparent;
     color: inherit;
-    font-size: 90%;
+    font-size: 85%;
     padding: 0;
     line-height: 1.5; /* 라인 넘버와 줄 높이가 어긋나지 않도록 명시적 고정 */
     display: block;
