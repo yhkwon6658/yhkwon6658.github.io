@@ -47,9 +47,12 @@
     &-title {
       color: $default-color;
       text-decoration: none !important; /* 👈 제목 텍스트 기본 밑줄 강제 차단 */
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      
+      /* 기존 말줄임표(nowrap) 속성을 제거하고 자연스러운 줄바꿈 허용 */
+      white-space: normal !important;  
+      word-break: keep-all;            
+      overflow-wrap: break-word;       
+      line-height: 1.4;
     }
 
     &-line {
@@ -81,5 +84,29 @@
         color: $default-shade;
       }
     }
+  }
+}
+
+/* 모바일 화면(600px 이하) 반응형 레이아웃 적용 */
+@media (max-width: 600px) {
+  .tags-post {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 0.8rem 0;
+  }
+
+  .tags-post-title {
+    font-size: 1.1rem;
+    margin-right: 0;
+  }
+
+  .tags-post-meta {
+    font-size: 0.85rem;
+    color: #888888;
+  }
+
+  .tags-post-meta time {
+    color: #888888;
   }
 }

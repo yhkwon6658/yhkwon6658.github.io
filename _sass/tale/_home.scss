@@ -48,3 +48,24 @@
     width: 2rem;
   }
 }
+
+/* 모바일 화면(600px 이하) 반응형 레이아웃 적용 */
+@media (max-width: 600px) {
+  .catalogue-item {
+    padding: 1.5rem 0;
+  }
+
+  .catalogue-title {
+    font-size: 1.4rem;
+    line-height: 1.35;
+    word-break: keep-all;
+  }
+
+  .catalogue-time {
+    font-size: 0.9rem;
+  }
+  
+  .catalogue-item p {
+    font-size: 0.95rem;
+  }
+}
