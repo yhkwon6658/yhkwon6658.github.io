@@ -7,11 +7,9 @@
   <script>
     // 다크 모드 버튼 가져오기
     const themeToggle = document.getElementById('theme-toggle');
-    console.log('Theme toggle button:', themeToggle); // 버튼 확인
   
     // 로컬 스토리지에서 현재 테마 확인
     const currentTheme = localStorage.getItem('theme');
-    console.log('Current theme from storage:', currentTheme); // 저장된 테마 확인
   
     if (currentTheme === 'dark') {
       document.body.classList.add('dark-mode'); // 다크 모드 활성화
@@ -20,16 +18,29 @@
   
     // 다크 모드 전환 로직
     themeToggle.addEventListener('click', () => {
-      console.log('Button clicked'); // 버튼 클릭 로그
       document.body.classList.toggle('dark-mode'); // 다크 모드 토글
+      
+      let isDark = false;
       if (document.body.classList.contains('dark-mode')) {
         localStorage.setItem('theme', 'dark'); // 다크 모드 상태 저장
         themeToggle.textContent = '☀️'; // 라이트 모드 아이콘
-        console.log('Dark mode activated'); // 활성화 로그
+        isDark = true;
       } else {
         localStorage.setItem('theme', 'light'); // 다크 모드 상태 저장
         themeToggle.textContent = '🌙'; // 라이트 모드 아이콘
-        console.log('Dark mode deactivated'); // 비활성화 로그
+        isDark = false;
+      }
+
+      // --- [신규 추가] Disqus 실시간 색반전 리로드 연동 ---
+      if (typeof DISQUS !== 'undefined') {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            // 필요시 페이지 고유 설정 유지
+            this.page.identifier = PAGE_IDENTIFIER; 
+            this.page.url = PAGE_URL;
+          }
+        });
       }
     });
   </script>
