@@ -27,14 +27,17 @@
         isDark = false;
       }
 
-      // --- [정상화] Giscus에 명확한 'dark' 또는 'light' 모드 신호 전달 ---
+      // --- [수정] 모드에 맞는 커스텀 CSS URL을 실시간 교체 전송 ---
       const iframe = document.querySelector('iframe.giscus-frame');
       if (iframe) {
-        const theme = isDark ? 'dark' : 'light';
+        const newThemeUrl = isDark 
+          ? 'https://yhkwon6658.github.io/assets/css/giscus-dark.css' 
+          : 'https://yhkwon6658.github.io/assets/css/giscus-light.css';
+
         iframe.contentWindow.postMessage({
           giscus: {
             setConfig: {
-              theme: theme
+              theme: newThemeUrl
             }
           }
         }, 'https://giscus.app');

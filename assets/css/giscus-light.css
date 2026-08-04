@@ -1,0 +1,31 @@
+main {
+  --color-canvas-default: #ffffff;
+  --color-canvas-subtle: #f8fafc;
+  --color-border-default: #e2e8f0;
+  --color-border-muted: #cbd5e1;
+  --color-accent-fg: #10b981;
+  --color-accent-emphasis: #059669;
+  --color-btn-text: #334155;
+  --color-fg-default: #1e293b;
+  --color-fg-muted: #64748b;
+}
+
+/* 화이트 모드 드래그 - 초록색 계열 */
+::selection {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: inherit;
+}
+::-moz-selection {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: inherit;
+}
+
+.form-control, textarea.form-control, .TextInput {
+  border-radius: 8px !important;
+  border-color: var(--color-border-default) !important;
+  background-color: var(--color-canvas-default) !important;
+  box-shadow: none !important;
+}
+.btn { border-radius: 8px !important; font-weight: 500 !important; }
+.btn-primary { background-color: #10b981 !important; border-color: #10b981 !important; color: #ffffff !important; }
+.timeline-comment, .comment { border-radius: 10px !important; border: 1px solid var(--color-border-default) !important; }
