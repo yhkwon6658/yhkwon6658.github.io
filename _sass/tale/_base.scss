@@ -65,9 +65,6 @@ td {
   vertical-align: top;
 }
 
-/* ==========================================================================
-   공통 태그 뱃지 스타일 (Home, Post, Tags 페이지에서 사용)[cite: 18]
-   ========================================================================== */
 .tag-badge {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -92,9 +89,6 @@ td {
   }
 }
 
-/* ==========================================================================
-   Dark Mode Global Styles[cite: 18]
-   ========================================================================== */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
@@ -108,7 +102,14 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 1. 네비게이션 바 텍스트 색상[cite: 18] */
+  .catalogue-item {
+    border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  .pagination {
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
   .nav-container {
     background-color: #121212;
     
@@ -122,7 +123,6 @@ body.dark-mode {
     }
   }
 
-  /* 2. 글 제목 및 카테고리 타이틀[cite: 18] */
   .post-title,
   .catalogue-title,
   .tags-item-label,
@@ -130,12 +130,10 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 3. 홈 화면 게시글 내용(본문 요약) 가독성 개선[cite: 18] */
   .catalogue-item p {
     color: #cccccc;
   }
 
-  /* 4. 날짜, 작성자, 부가 정보, 페이징 숫자(1), Top 버튼 색상 통일[cite: 18] */
   .post-info,
   .post-info span,
   .catalogue-time,
@@ -146,13 +144,11 @@ body.dark-mode {
     color: #cccccc !important;
   }
 
-  /* 5. 다크 모드용 인라인 코드 색상[cite: 18] */
   p > code, li > code, td > code {
     background-color: #333333;
     color: #ff7b72;
   }
 
-  /* 6. 다크 모드 - 공통 태그 뱃지[cite: 18] */
   .tag-badge {
     background: rgba(255, 255, 255, 0.1);
     color: #e0e0e0;
