@@ -13,7 +13,7 @@ permalink: /tags/
   
   <div class="tags-clouds">
     {% for tag in site.tags %}
-    <a href="#{{ tag[0] }}">{{ tag[0] }}</a>
+    <a href="#{{ tag[0] }}" class="tag-badge">{{ tag[0] }}</a>
     {% endfor %}
   </div>
 

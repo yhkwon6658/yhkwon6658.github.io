@@ -66,6 +66,32 @@ td {
 }
 
 /* ==========================================================================
+   공통 태그 뱃지 스타일 (Home, Post, Tags 페이지에서 사용)
+   ========================================================================== */
+.tag-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  color: $default-color;
+  font-family: $sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin-right: 0.3rem; /* 태그 간격 */
+  margin-bottom: 0.3rem;
+
+  &::before {
+    content: '# ';
+    color: $default-tint;
+    font-weight: bold;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ==========================================================================
    Dark Mode Global Styles
    ========================================================================== */
 body.dark-mode {
@@ -118,8 +144,8 @@ body.dark-mode {
     color: #ff7b72;
   }
 
-  /* 5. 글 하단 태그 스타일 */
-  .post-tags a {
+  /* 5. 다크 모드 - 공통 태그 뱃지 */
+  .tag-badge {
     background: rgba(255, 255, 255, 0.1);
     color: #e0e0e0;
     
