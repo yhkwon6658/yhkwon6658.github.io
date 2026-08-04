@@ -62,3 +62,81 @@ textarea.form-control:focus {
   background-color: var(--color-canvas-default) !important;
   color: var(--color-fg-default) !important;
 }
+
+/* ==========================================================================
+   맥OS 스타일 코드 블록 (CSS 전용 레이아웃 및 구문 강조 동기화)
+   ========================================================================== */
+.highlight {
+  background-color: #282c34 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  margin: 1.5em 0 !important;
+  padding: 50px 15px 15px 15px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* CSS로 맥OS 윈도우 버튼(빨강, 노랑, 초록) 구현 */
+.highlight::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 16px !important;
+  left: 15px !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: #ff5f56 !important;
+  box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f !important;
+  z-index: 20 !important;
+}
+
+/* 상단 버튼 영역과 코드 본문을 나누는 은은한 구분선 */
+.highlight::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 42px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  z-index: 10 !important;
+}
+
+pre, code {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+pre {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #abb2bf !important;
+  overflow-x: auto !important;
+}
+
+code {
+  background: transparent !important;
+  color: inherit !important;
+  font-size: 85% !important;
+  padding: 0 !important;
+  line-height: 1.5 !important;
+  display: block !important;
+}
+
+/* 구문 강조 (Syntax Highlighting) 색상 */
+.highlight .hll { background-color: rgba(255, 255, 255, 0.1); }
+.highlight .c, .highlight .cm, .highlight .cp, .highlight .c1, .highlight .cs { color: #7f848e; font-style: italic; }
+.highlight .err { color: #f44747; background-color: inherit; }
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr { color: #c678dd; } 
+.highlight .kt { color: #e5c07b; } 
+.highlight .o, .highlight .ow { color: #56b6c2; } 
+.highlight .na { color: #d19a66; } 
+.highlight .nb, .highlight .ni { color: #56b6c2; } 
+.highlight .nc, .highlight .nn { color: #e5c07b; } 
+.highlight .nd, .highlight .nf, .highlight .nl { color: #61afef; } 
+.highlight .ne, .highlight .nt, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi { color: #e06c75; } 
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il { color: #d19a66; } 
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color: #98c379; }
+.highlight .w, .highlight .n { color: #abb2bf; }
