@@ -23,9 +23,10 @@ div.highlighter-rouge, figure.highlight {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   position: relative;
   margin: 1.5em 0;
-  padding: 40px 15px 15px 15px;
+  padding: 42px 15px 15px 15px;
+  overflow: hidden;
 
-  /* 맥 스타일 윈도우 버튼 */
+  /* 맥 스타일 윈도우 버튼 (빨강, 노랑, 초록) */
   &::before {
     content: "";
     position: absolute;
@@ -37,6 +38,17 @@ div.highlighter-rouge, figure.highlight {
     border-radius: 50%;
     box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
     z-index: 10;
+  }
+
+  /* 상단 버튼 영역과 코드 본문을 나누는 은은한 구분선 */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 38px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.08);
   }
 
   /* 내부 중첩된 컨테이너 투명화 및 초기화 (버튼 중복 생성 방지) */
