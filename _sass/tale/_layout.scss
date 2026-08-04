@@ -15,12 +15,28 @@ footer,
 
 .nav {
   box-shadow: none !important;
-  border-bottom: 1px solid $grey-2;
+  border-bottom: none;
+  position: relative;
   overflow: auto;
 
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 800px;
+    border-bottom: 1px solid $grey-2;
+  }
+
   body.dark-mode & {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-bottom: none !important;
     background-color: #121212;
+
+    &::after {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
   }
 
   &-container {
