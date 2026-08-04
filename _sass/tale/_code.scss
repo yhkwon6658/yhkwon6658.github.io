@@ -40,8 +40,25 @@ div.highlighter-rouge, figure.highlight {
     z-index: 10;
   }
 
-  /* 상단 버튼 영역과 코드 본문을 나누는 은은한 구분선 */
-  &::after {
+  /* data-title 속성이 있을 경우 상단 헤더에 파일명 출력 */
+  &[data-title]::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center; // 제목을 가운데 정렬 (왼쪽 정렬을 원하면 left 값 조절 가능)
+    font-family: $sans-serif;
+    font-size: 0.85rem;
+    color: #abb2bf;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* 제목이 없을 경우를 위한 기본 구분선 (원하실 경우 유지) */
+  &:not([data-title])::after {
     content: "";
     position: absolute;
     top: 38px;
@@ -51,7 +68,7 @@ div.highlighter-rouge, figure.highlight {
     background-color: rgba(255, 255, 255, 0.08);
   }
 
-  /* 내부 중첩된 컨테이너 투명화 및 초기화 (버튼 중복 생성 방지) */
+  /* 내부 요소 초기화 */
   .highlight {
     background: transparent;
     margin: 0;
