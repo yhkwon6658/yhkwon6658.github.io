@@ -63,7 +63,7 @@ div.highlighter-rouge, figure.highlight {
     &::before {
       position: absolute;
       top: -28px; 
-      /* 초록색 버튼 우측 끝단(67px)을 기준으로 15px의 여백을 두어 82px로 설정 */
+      /* 초록색 버튼 우측 끝단(67px)을 기준으로 5px의 여백을 두어 72px로 설정 */
       left: 72px; 
       /* 반투명한 색상에서 완전한 불투명 흰색으로 변경 */
       color: #ffffff; 
@@ -89,6 +89,37 @@ div.highlighter-rouge, figure.highlight {
     color: inherit;
     font-size: 100%;
     padding: 0;
+  }
+
+  /* 새로 추가: 우측 상단 복사 버튼 디자인 */
+  .copy-btn {
+    position: absolute;
+    top: 10px;    /* 버튼 상단 위치 */
+    right: 10px;  /* 버튼 우측 여백 */
+    background-color: transparent;
+    color: #abb2bf;
+    border: 1px solid #abb2bf;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: $monospaced;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    z-index: 20;  /* 윈도우 버튼과 겹치지 않고 최상단에 오도록 설정 */
+
+    /* 마우스 호버 시 상태 */
+    &:hover {
+      color: #ffffff;
+      border-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 복사 완료 상태 시 (맥OS 스타일의 초록색 버튼 색상 활용) */
+    &.copied {
+      color: #27c93f;
+      border-color: #27c93f;
+      background-color: rgba(39, 201, 63, 0.1);
+    }
   }
 }
 
