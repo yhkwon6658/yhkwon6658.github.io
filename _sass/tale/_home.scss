@@ -5,13 +5,18 @@
     display: block;
     padding: 2rem 0;
 
-    &:hover .catalogue-line,
-    &:focus .catalogue-line {
-      width: 5rem;
-    }
+    /* 🚨 여기에 있던 &:hover .catalogue-line { width: 5rem; } 코드를 삭제했습니다! */
 
     &:last-child {
       border: 0;
+    }
+  }
+
+  /* ✅ 새로운 규칙: '제목 및 본문 영역'에 마우스를 올렸을 때만 밑줄이 길어집니다 */
+  &-post-link {
+    &:hover .catalogue-line,
+    &:focus .catalogue-line {
+      width: 5rem;
     }
   }
 
