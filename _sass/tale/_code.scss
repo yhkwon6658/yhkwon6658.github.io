@@ -25,26 +25,28 @@ div.highlighter-rouge, figure.highlight {
   margin: 1.5em 0;
   padding: 50px 15px 15px 15px;
   overflow: hidden;
+  box-sizing: border-box; /* 추가: 가로/세로 크기 계산 기준 변경 */
+  max-width: 100%; /* 추가: 가로 접힘 애니메이션을 위한 기본 너비 설정 */
   transition: all 0.3s ease; /* 접힘/펼침 애니메이션 부드럽게 */
 
   /* 접힘 상태 (노란색 버튼 클릭 시) - 본문만 숨김 */
   &.collapsed-yellow {
     padding-bottom: 0;
-    height: 50px; /* 상단 패널 높이만 남김 */
+    height: 50px; /* 상단 패널 높이(50px)만 남김 */
   }
 
-  /* 완전 접힘 상태 (빨간색 버튼 클릭 시) - 패널 내용까지 숨김 */
+  /* 완전 접힘 상태 (빨간색 버튼 클릭 시) - 가로/세로 모두 축소 */
   &.collapsed-red {
-    padding-bottom: 0;
-    height: 16px; /* 버튼 높이 정도만 남김 */
-    padding-top: 16px;
+    padding-top: 16px; /* 버튼 상단 여백에 맞춰 축소 */
+    padding-bottom: 16px; /* 버튼 하단 여백 설정 */
+    height: 44px; /* 상단 16px + 버튼 12px + 하단 16px = 총 44px */
+    max-width: 82px; /* 좌측 15px + 버튼 3개 영역 52px + 우측 15px = 총 82px */
     
-    /* 완전 접힘 상태에서는 제목, 복사버튼, 구분선 숨김 */
-    &::after, .highlight::before, .copy-btn {
+    /* 완전 접힘 상태에서는 본문 전체, 제목, 복사버튼, 구분선 숨김 */
+    &::after, .highlight, .copy-btn {
         display: none;
     }
   }
-
 
   /* 상단 버튼 영역과 코드 본문을 나누는 은은한 구분선 */
   &::after {
@@ -132,7 +134,7 @@ div.highlighter-rouge, figure.highlight {
     top: 16px;
     left: 15px;
     display: flex;
-    gap: 8px; /* 버튼 사이 간격 20px - 12px = 8px */
+    gap: 8px; /* 버튼 사이 간격 */
     z-index: 30; /* 클릭 가능하도록 우선순위 높임 */
 }
 
@@ -148,7 +150,6 @@ div.highlighter-rouge, figure.highlight {
 .mac-btn-red { background-color: #ff5f56; }
 .mac-btn-yellow { background-color: #ffbd2e; }
 .mac-btn-green { background-color: #27c93f; }
-
 
 /* ==========================================================================
    3. 구문 강조 (Syntax Highlighting) 알맹이 글자 색상
