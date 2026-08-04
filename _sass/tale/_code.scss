@@ -1,7 +1,6 @@
 pre,
 code {
   font-family: 'JetBrains Mono', $monospaced, monospace;
-  font-variant-ligatures: contextual; /* 폰트 합자(Ligatures) 기능 활성화 */
 }
 
 /* ==========================================================================
@@ -26,20 +25,26 @@ div.highlighter-rouge, figure.highlight {
   margin: 1.5em 0;
   padding: 50px 15px 15px 15px;
   overflow: hidden;
+  transition: all 0.3s ease; /* 접힘/펼침 애니메이션 부드럽게 */
 
-  /* 맥 스타일 윈도우 버튼 (빨강, 노랑, 초록) */
-  &::before {
-    content: "";
-    position: absolute;
-    top: 16px;
-    left: 15px;
-    width: 12px;
-    height: 12px;
-    background-color: #ff5f56;
-    border-radius: 50%;
-    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
-    z-index: 10;
+  /* 접힘 상태 (노란색 버튼 클릭 시) - 본문만 숨김 */
+  &.collapsed-yellow {
+    padding-bottom: 0;
+    height: 50px; /* 상단 패널 높이만 남김 */
   }
+
+  /* 완전 접힘 상태 (빨간색 버튼 클릭 시) - 패널 내용까지 숨김 */
+  &.collapsed-red {
+    padding-bottom: 0;
+    height: 16px; /* 버튼 높이 정도만 남김 */
+    padding-top: 16px;
+    
+    /* 완전 접힘 상태에서는 제목, 복사버튼, 구분선 숨김 */
+    &::after, .highlight::before, .copy-btn {
+        display: none;
+    }
+  }
+
 
   /* 상단 버튼 영역과 코드 본문을 나누는 은은한 구분선 */
   &::after {
@@ -120,6 +125,32 @@ div.highlighter-rouge, figure.highlight {
 }
 
 /* ==========================================================================
+   2-1. 인터랙티브 윈도우 버튼 (빨강, 노랑, 초록) 컨테이너
+   ========================================================================== */
+.mac-buttons {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+    display: flex;
+    gap: 8px; /* 버튼 사이 간격 20px - 12px = 8px */
+    z-index: 30; /* 클릭 가능하도록 우선순위 높임 */
+}
+
+.mac-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.mac-btn-red { background-color: #ff5f56; }
+.mac-btn-yellow { background-color: #ffbd2e; }
+.mac-btn-green { background-color: #27c93f; }
+
+
+/* ==========================================================================
    3. 구문 강조 (Syntax Highlighting) 알맹이 글자 색상
    ========================================================================== */
 .highlight .hll { background-color: #ffc; }
@@ -191,4 +222,3 @@ div.language-bash .highlight::before { content: "Bash"; }
 div.language-python .highlight::before { content: "Python"; }
 div.language-html .highlight::before { content: "HTML"; }
 div.language-css .highlight::before { content: "CSS"; }
-/* 필요한 언어를 위와 같은 방식으로 추가 */

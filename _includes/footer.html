@@ -46,26 +46,74 @@
         var iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 18px; height: 18px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>';
 
         codeBlocks.forEach(function(block) {
-            var button = document.createElement('button');
-            button.className = 'copy-btn';
-            button.type = 'button';
-            button.innerHTML = iconCopy; // 텍스트 대신 SVG 아이콘 삽입
+            
+            // --- 맥OS 버튼 컨테이너 추가 ---
+            var macButtons = document.createElement('div');
+            macButtons.className = 'mac-buttons';
+            
+            var btnRed = document.createElement('button');
+            btnRed.className = 'mac-btn mac-btn-red';
+            btnRed.type = 'button';
+            btnRed.title = '완전 접기';
 
-            block.appendChild(button);
+            var btnYellow = document.createElement('button');
+            btnYellow.className = 'mac-btn mac-btn-yellow';
+            btnYellow.type = 'button';
+            btnYellow.title = '본문 접기';
 
-            button.addEventListener('click', function() {
+            var btnGreen = document.createElement('button');
+            btnGreen.className = 'mac-btn mac-btn-green';
+            btnGreen.type = 'button';
+            btnGreen.title = '원상 복구';
+            
+            macButtons.appendChild(btnRed);
+            macButtons.appendChild(btnYellow);
+            macButtons.appendChild(btnGreen);
+            
+            block.appendChild(macButtons);
+
+
+            // --- 복사 버튼 로직 ---
+            var copyButton = document.createElement('button');
+            copyButton.className = 'copy-btn';
+            copyButton.type = 'button';
+            copyButton.innerHTML = iconCopy; 
+
+            block.appendChild(copyButton);
+
+            copyButton.addEventListener('click', function() {
                 var code = block.querySelector('code');
                 var text = code.innerText;
 
                 navigator.clipboard.writeText(text).then(function() {
-                    button.innerHTML = iconCheck; // 복사 완료 시 체크 아이콘으로 변경
-                    button.classList.add('copied');
+                    copyButton.innerHTML = iconCheck; 
+                    copyButton.classList.add('copied');
 
                     setTimeout(function() {
-                        button.innerHTML = iconCopy; // 2초 후 원래 아이콘으로 복구
-                        button.classList.remove('copied');
+                        copyButton.innerHTML = iconCopy; 
+                        copyButton.classList.remove('copied');
                     }, 2000);
                 });
+            });
+            
+            // --- 윈도우 버튼 이벤트 리스너 ---
+            
+            // 노란색 버튼: 본문만 숨기기 (상단 패널 유지)
+            btnYellow.addEventListener('click', function() {
+                block.classList.remove('collapsed-red'); // 다른 접힘 상태 해제
+                block.classList.add('collapsed-yellow');
+            });
+
+            // 빨간색 버튼: 완전 접기 (패널 내용까지 숨기기)
+            btnRed.addEventListener('click', function() {
+                block.classList.remove('collapsed-yellow');
+                block.classList.add('collapsed-red');
+            });
+
+            // 초록색 버튼: 원상 복구
+            btnGreen.addEventListener('click', function() {
+                block.classList.remove('collapsed-yellow');
+                block.classList.remove('collapsed-red');
             });
         });
     });
