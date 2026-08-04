@@ -226,8 +226,7 @@ div.language-python .highlight::before, div.language-py .highlight::before { con
 div.language-ruby .highlight::before, div.language-rb .highlight::before { content: "Ruby"; }
 
 /* 4-2. 하드웨어 설계 및 검증 (ASIC) */
-div.language-verilog .highlight::before, div.language-v .highlight::before { content: "Verilog"; }
-div.language-systemverilog .highlight::before, div.language-sv .highlight::before { content: "SystemVerilog"; }
+div.language-verilog .highlight::before, div.language-v .highlight::before { content: "Verilog / SystemVerilog"; }
 div.language-vhdl .highlight::before, div.language-vhd .highlight::before { content: "VHDL"; }
 div.language-tcl .highlight::before { content: "Tcl"; }
 div.language-make .highlight::before, div.language-makefile .highlight::before { content: "Makefile"; }
