@@ -19,7 +19,7 @@ footer,
 
   &-container {
     margin: 1rem auto;
-    padding-bottom: 2rem; /* 하단 구분선과 동일한 간격(2rem) 적용 */
+    padding-bottom: 1rem;
     position: relative;
     text-align: center;
     border-bottom: 1px solid $grey-2;
@@ -76,7 +76,7 @@ footer,
   .nav {
     &-container {
       text-align: left;
-      padding-bottom: 2rem; /* 데스크탑 화면에서도 동일하게 2rem 패딩 유지 */
+      padding-bottom: 1rem;
     }
 
     ul {
