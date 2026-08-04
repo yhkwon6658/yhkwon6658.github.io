@@ -31,91 +31,59 @@
     /* 다크 모드 활성화 시 반전 색상 */
     body.dark-mode {
         background-color: #000; /* 완전 검은색 */
-        color: #fff; /* 완전 흰색 */
+        color: #f8f8f2; /* 본문 텍스트를 눈에 띄는 밝은 색으로 */
     }
 
-    /* 다크 모드에서 반전된 링크 스타일 */
+    /* 다크 모드에서 링크 스타일 */
     body.dark-mode a {
-        color: #ffcc00; /* 노란색 */
+        color: #ffcc00;
     }
-
     body.dark-mode a:hover {
-        color: #ff6600; /* 오렌지색 */
+        color: #ff6600;
     }
 
     /* 다크 모드 네비게이션 스타일 */
     body.dark-mode .nav-container {
-        background-color: #000; /* 네비게이션 바 반전 배경 */
-        color: #fff; /* 텍스트 흰색 */
+        background-color: #000;
+        color: #fff;
     }
-
     body.dark-mode .nav-container a {
-        color: #ffcc00; /* 링크 색상 */
+        color: #ffcc00;
     }
-
     body.dark-mode .nav-container a:hover {
-        color: #ff6600; /* 링크 호버 */
+        color: #ff6600;
     }
 
-    /* 다크 모드에서 코드 블록 제외 */
-    body.dark-mode pre,
-    body.dark-mode code,
-    body.dark-mode .highlight {
-        background-color: #242424 !important; /* 다크 모드 배경 제거 */
-        color: inherit !important; /* 다크 모드 텍스트 제거 */
+    /* 🔥 [추가] 다크 모드일 때 제목(H1~H6) 및 타이틀 색상을 밝게(흰색) 강제 적용 */
+    body.dark-mode h1, 
+    body.dark-mode h2, 
+    body.dark-mode h3, 
+    body.dark-mode h4, 
+    body.dark-mode h5, 
+    body.dark-mode h6,
+    body.dark-mode .post-title,
+    body.dark-mode .catalogue-title {
+        color: #ffffff !important;
+    }
+
+    /* 🔥 [추가] 다크 모드일 때 글쓴이, 날짜 등 부가 정보 색상을 밝은 회색으로 조정 */
+    body.dark-mode .post-info,
+    body.dark-mode .post-info span,
+    body.dark-mode .post-info time,
+    body.dark-mode .post-info a,
+    body.dark-mode .catalogue-time {
+        color: #aaaaaa !important;
     }
 
     /* 다크 모드 버튼 기본 스타일 */
     #theme-toggle {
-        all: unset; /* 기본 스타일 초기화 */
-        cursor: pointer; /* 클릭 커서 */
-        font-size: 20px; /* 아이콘 크기 */
+        all: unset;
+        cursor: pointer;
+        font-size: 20px;
     }
-
-    /* 버튼에 마우스를 올릴 때 효과 */
     #theme-toggle:hover {
-        transform: scale(1.1); /* 크기 확대 */
-        transition: transform 0.2s ease-in-out; /* 부드러운 전환 */
+        transform: scale(1.1);
+        transition: transform 0.2s ease-in-out;
     }
-
-    /* --- 맥OS 스타일 코드 블록 강제 커스텀 (head.html 내부에 추가) --- */
-    div.highlighter-rouge {
-        background-color: #282c34 !important; /* 다크 모드 어두운 배경 */
-        border-radius: 8px !important;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
-        position: relative !important;
-        margin: 1.5em 0 !important;
-    }
-
-    /* 맥 스타일 윈도우 버튼 (빨강, 노랑, 초록 점) */
-    div.highlighter-rouge::before {
-        content: "" !important;
-        position: absolute !important;
-        top: 14px !important;
-        left: 15px !important;
-        width: 12px !important;
-        height: 12px !important;
-        background-color: #ff5f56 !important; /* 빨강 */
-        border-radius: 50% !important;
-        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f !important; /* 노랑, 초록 */
-        z-index: 10 !important;
-    }
-
-    div.highlighter-rouge .highlight {
-        margin: 0 !important;
-    }
-
-    div.highlighter-rouge .highlight pre.highlight {
-        padding: 40px 15px 15px 15px !important; /* 상단 버튼 공간 40px 확보 */
-        margin: 0 !important;
-        background: transparent !important;
-        border: none !important;
-        overflow-x: auto !important;
-        font-family: 'D2Coding', 'Consolas', monospace !important;
-        color: #abb2bf !important; /* 어두운 배경에 어울리는 밝은 글씨색 */
-    }
-
-
-
   </style>
 </head>
