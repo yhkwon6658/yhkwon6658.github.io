@@ -117,4 +117,13 @@ body.dark-mode {
     background-color: #333333;
     color: #ff7b72;
   }
+
+  /* 5. 글 하단 태그 스타일 */
+  .post-tags a {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    
+    &::before { color: #a1a1aa; }
+    &:hover { background: rgba(255, 255, 255, 0.2); color: #ffffff; }
+  }
 }
