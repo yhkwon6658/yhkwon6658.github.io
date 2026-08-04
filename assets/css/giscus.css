@@ -1,6 +1,6 @@
-/* Giscus Custom Theme - Modern & Clean Style */
-
-/* 1. 라이트 모드 컬러 변수 */
+/* ==========================================
+   1. 라이트 모드 (기본) 세팅
+   ========================================== */
 main {
   --color-canvas-default: #ffffff;
   --color-canvas-subtle: #f8fafc;
@@ -13,15 +13,23 @@ main {
   --color-fg-muted: #64748b;
 }
 
-/* 라이트 모드 드래그 색상 (초록 계열) */
 ::selection {
   background-color: rgba(34, 197, 94, 0.3);
   color: inherit;
 }
+::-moz-selection {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: inherit;
+}
 
-/* 2. 다크 모드 컬러 변수 (정확한 data-theme="dark" 매칭) */
+
+/* ==========================================
+   2. 다크 모드 세팅 (다양한 속성 및 해시 변화 대응)
+   ========================================== */
 main[data-theme="dark"],
-.giscus-frame[data-theme="dark"] {
+.giscus-frame[data-theme="dark"],
+main[data-theme*="dark"],
+body[data-theme="dark"] {
   --color-canvas-default: #1e293b;
   --color-canvas-subtle: #0f172a;
   --color-border-default: #334155;
@@ -33,14 +41,23 @@ main[data-theme="dark"],
   --color-fg-muted: #94a3b8;
 }
 
-/* 다크 모드 드래그 색상 (노란 계열) */
 main[data-theme="dark"] ::selection,
-.giscus-frame[data-theme="dark"] ::selection {
+.giscus-frame[data-theme="dark"] ::selection,
+main[data-theme*="dark"] ::selection {
+  background-color: rgba(234, 179, 8, 0.4);
+  color: inherit;
+}
+main[data-theme="dark"] ::-moz-selection,
+.giscus-frame[data-theme="dark"] ::-moz-selection,
+main[data-theme*="dark"] ::-moz-selection {
   background-color: rgba(234, 179, 8, 0.4);
   color: inherit;
 }
 
-/* 3. 컴포넌트 디자인 정리 */
+
+/* ==========================================
+   3. 컴포넌트 디자인 스타일 공통
+   ========================================== */
 .form-control, 
 textarea.form-control,
 .TextInput {
