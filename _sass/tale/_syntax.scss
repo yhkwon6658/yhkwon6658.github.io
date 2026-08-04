@@ -63,3 +63,40 @@
 .css .o,
 .css .o + .nt,
 .css .nt + .nt { color: #999; }
+
+/* --- 아래부터 맥OS 스타일 코드 블록 컨테이너 설정 --- */
+div.highlighter-rouge {
+    background-color: #2d2d2d; /* 참조하신 이미지와 비슷한 어두운 배경색 */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 1.5em 0;
+
+    /* 맥 스타일 윈도우 버튼 (빨강, 노랑, 초록 점) */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 15px;
+        width: 12px;
+        height: 12px;
+        background-color: #ff5f56;
+        border-radius: 50%;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+        z-index: 10;
+    }
+
+    .highlight {
+        margin: 0;
+
+        pre.highlight {
+            padding: 40px 15px 15px 15px;
+            margin: 0;
+            background: transparent;
+            border: none;
+            overflow-x: auto;
+            font-family: 'D2Coding', 'Consolas', monospace;
+            color: #f8f8f2; /* 기본 글자색을 밝게 설정 */
+        }
+    }
+}
