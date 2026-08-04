@@ -4,14 +4,18 @@
     <span class="catalogue-pinned">Pinned &middot;</span>
     {% endif %}
     
-    <!-- 1. 태그 영역: 클릭 시 카테고리 탭의 해당 태그로 이동합니다 -->
+    <!-- 1. 태그 영역 -->
     {% for tag in post.tags %}
       <a href="{{ '/tags/#' | append: tag | prepend: site.baseurl }}" class="tag-badge">{{ tag }}</a>
     {% endfor %}
-
-    <!-- 2. 게시글 본문 영역: 클릭 시 포스트로 이동합니다 -->
-    <a href="{{ post.url | prepend: site.baseurl }}" style="display: block; text-decoration: none; color: inherit; padding-top: 0.5rem;">
+    
+    <!-- 2. 날짜 영역 (태그와 같은 줄에 배치되도록 블록 밖으로 분리) -->
+    <a href="{{ post.url | prepend: site.baseurl }}" style="text-decoration: none; color: inherit;">
       <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
+    </a>
+
+    <!-- 3. 제목 및 본문 영역 (여기서부터만 줄바꿈(block) 적용) -->
+    <a href="{{ post.url | prepend: site.baseurl }}" style="display: block; text-decoration: none; color: inherit; margin-top: 0.5rem;">
       <h1 class="catalogue-title">{{ post.title }}</h1>
       <div class="catalogue-line"></div>
       <p>

@@ -88,6 +88,7 @@ td {
 
   &:hover {
     background: rgba(0, 0, 0, 0.1);
+    text-decoration: underline; /* 👈 홈/카테고리/글 어디서든 마우스 오버 시 밑줄 생성 */
   }
 }
 
@@ -150,6 +151,10 @@ body.dark-mode {
     color: #e0e0e0;
     
     &::before { color: #a1a1aa; }
-    &:hover { background: rgba(255, 255, 255, 0.2); color: #ffffff; }
+    &:hover { 
+      background: rgba(255, 255, 255, 0.2); 
+      color: #ffffff; 
+      text-decoration: underline; /* 👈 다크 모드에서도 마우스 오버 시 밑줄 생성 */
+    }
   }
 }
