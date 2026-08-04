@@ -15,18 +15,18 @@ footer,
 
 .nav {
   box-shadow: none !important;
+  border-bottom: 1px solid $grey-2;
   overflow: auto;
+
+  body.dark-mode & {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background-color: #121212;
+  }
 
   &-container {
     margin: 1rem auto;
-    padding-bottom: 1rem;
     position: relative;
     text-align: center;
-    border-bottom: 1px solid $grey-2;
-
-    body.dark-mode & {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
-    }
   }
 
   &-title {
@@ -76,14 +76,12 @@ footer,
   .nav {
     &-container {
       text-align: left;
-      padding-bottom: 1rem;
     }
 
     ul {
       bottom: 0;
       position: absolute;
       right: 0;
-      margin: 0;
     }
   }
 }
