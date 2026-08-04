@@ -90,3 +90,15 @@ footer {
     font-size: .8rem;
   }
 }
+
+/* --- 다크 모드 토글 버튼 스타일 --- */
+#theme-toggle {
+  all: unset;
+  cursor: pointer;
+  font-size: 20px;
+  
+  &:hover {
+    transform: scale(1.1);
+    @include transition(transform .2s ease-in-out); /* Tale 테마의 기본 애니메이션 믹스인 활용 */
+  }
+}
