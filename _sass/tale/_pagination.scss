@@ -31,6 +31,7 @@
 
     body.dark-mode & {
       color: #cccccc !important;
+      opacity: 0.9; // 투명도를 높여 페이지 숫자와 동일한 수준의 밝기 확보
     }
   }
 
