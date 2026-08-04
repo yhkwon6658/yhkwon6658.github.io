@@ -106,6 +106,18 @@ body.dark-mode {
     border-bottom-color: rgba(255, 255, 255, 0.3) !important;
   }
 
+  /* ✅ 추가할 코드: 다크 모드 호버 밑줄 및 제목 밑줄 색상 밝게 조정 */
+  .catalogue-line,
+  .tags-post-line {
+    border-top-color: #ffffff; 
+  }
+
+  .post-line,       
+  .notfound-line,   
+  .tags-header-line {
+    border-top-color: rgba(255, 255, 255, 0.7); 
+  }
+
   .nav-container {
     background-color: #121212;
     
