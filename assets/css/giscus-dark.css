@@ -1,4 +1,6 @@
-/* Giscus 다크 모드 - 뉴트럴 차콜/딥 다크 테마 */
+/* ==========================================================================
+   Giscus 다크 모드 - 뉴트럴 차콜/딥 다크 테마
+   ========================================================================== */
 main {
   --color-canvas-default: #18181b;     /* 깊고 차분한 차콜 블랙 */
   --color-canvas-subtle: #121212;      /* 더 어두운 배경 영역 */
@@ -11,7 +13,7 @@ main {
   --color-fg-muted: #a1a1aa;           /* 서브 글씨 색상 */
 }
 
-/* 다크 모드 드래그 - 노란색 계열 유지 */
+/* 다크 모드 드래그 - 노란색 계열 */
 ::selection {
   background-color: rgba(234, 179, 8, 0.4);
   color: inherit;
@@ -63,8 +65,9 @@ textarea.form-control:focus {
   color: var(--color-fg-default) !important;
 }
 
+
 /* ==========================================================================
-   맥OS 스타일 코드 블록 (CSS 전용 레이아웃 및 구문 강조 동기화)
+   _code.scss 100% 완벽 동기화 코드 블록 레이아웃
    ========================================================================== */
 .highlight {
   background-color: #282c34 !important;
@@ -77,7 +80,7 @@ textarea.form-control:focus {
   box-sizing: border-box !important;
 }
 
-/* CSS로 맥OS 윈도우 버튼(빨강, 노랑, 초록) 구현 */
+/* 1. 맥OS 윈도우 버튼 (빨강, 노랑, 초록) - .highlight::before */
 .highlight::before {
   content: "" !important;
   position: absolute !important;
@@ -91,7 +94,7 @@ textarea.form-control:focus {
   z-index: 20 !important;
 }
 
-/* 상단 버튼 영역과 코드 본문을 나누는 은은한 구분선 */
+/* 2. 상단 헤더 구분선 - .highlight::after */
 .highlight::after {
   content: "" !important;
   position: absolute !important;
@@ -114,6 +117,7 @@ pre {
   padding: 0 !important;
   color: #abb2bf !important;
   overflow-x: auto !important;
+  position: relative !important;
 }
 
 code {
@@ -125,18 +129,108 @@ code {
   display: block !important;
 }
 
-/* 구문 강조 (Syntax Highlighting) 색상 */
+/* 인라인 코드 스타일 */
+p > code, li > code, td > code {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 3px !important;
+  color: #e06c75 !important;
+  font-size: 85% !important;
+  padding: .25em .5em !important;
+}
+
+
+/* ==========================================================================
+   3. 구문 강조 (Syntax Highlighting) 전체 알맹이 글자 색상
+   ========================================================================== */
 .highlight .hll { background-color: rgba(255, 255, 255, 0.1); }
 .highlight .c, .highlight .cm, .highlight .cp, .highlight .c1, .highlight .cs { color: #7f848e; font-style: italic; }
 .highlight .err { color: #f44747; background-color: inherit; }
+
+/* 키워드 (보라색 / 노란색) */
 .highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr { color: #c678dd; } 
 .highlight .kt { color: #e5c07b; } 
+
+/* 연산자 (청록색) */
 .highlight .o, .highlight .ow { color: #56b6c2; } 
+
+/* 식별자 및 속성 (파란색 / 주황색 / 분홍색) */
 .highlight .na { color: #d19a66; } 
 .highlight .nb, .highlight .ni { color: #56b6c2; } 
 .highlight .nc, .highlight .nn { color: #e5c07b; } 
 .highlight .nd, .highlight .nf, .highlight .nl { color: #61afef; } 
 .highlight .ne, .highlight .nt, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi { color: #e06c75; } 
+
+/* 리터럴 (숫자: 주황색, 문자열: 초록색) */
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il { color: #d19a66; } 
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color: #98c379; }
-.highlight .w, .highlight .n { color: #abb2bf; }
+
+/* 공백 및 기본 텍스트 */
+.highlight .w, .highlight .n { color: #abb2bf; } 
+
+/* Generic (Diff 상태 출력용) */
+.highlight .gd { color: #e06c75; background-color: rgba(224, 108, 117, 0.1); } 
+.highlight .ge { font-style: italic; } 
+.highlight .gr { color: #e06c75; } 
+.highlight .gh { color: #e5c07b; font-weight: bold; } 
+.highlight .gi { color: #98c379; background-color: rgba(152, 195, 121, 0.1); } 
+.highlight .go { color: #5c6370; } 
+.highlight .gp { color: #61afef; font-weight: bold; } 
+.highlight .gu { color: #56b6c2; font-weight: bold; } 
+
+/* CSS 전용 예외 규칙 */
+.css .o, .css .o + .nt, .css .nt + .nt { color: #abb2bf; }
+
+
+/* ==========================================================================
+   4. 코드 블록 언어별 상단 제목 매핑 (pre::before 활용)
+   ========================================================================== */
+/* 언어 제목 공통 스타일 (버튼 우측 72px 위치 지정) */
+[class*="language-"] pre::before,
+[class*="highlight-source-"] pre::before,
+[class*="highlight-text-"] pre::before {
+  position: absolute !important;
+  top: -34px !important;
+  left: 72px !important;
+  color: #ffffff !important;
+  font-weight: bold !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+  line-height: 12px !important;
+  z-index: 30 !important;
+}
+
+/* 4-1. 쉘 및 스크립트 */
+[class*="bash"] pre::before, [class*="sh"] pre::before { content: "Bash" !important; }
+[class*="python"] pre::before, [class*="py"] pre::before { content: "Python" !important; }
+[class*="ruby"] pre::before, [class*="rb"] pre::before { content: "Ruby" !important; }
+
+/* 4-2. 하드웨어 설계 및 검증 (ASIC) */
+[class*="verilog"] pre::before, [class*="highlight-source-v"] pre::before { content: "Verilog / SystemVerilog" !important; }
+[class*="vhdl"] pre::before, [class*="vhd"] pre::before { content: "VHDL" !important; }
+[class*="tcl"] pre::before { content: "Tcl" !important; }
+[class*="make"] pre::before, [class*="makefile"] pre::before { content: "Makefile" !important; }
+[class*="assembly"] pre::before, [class*="asm"] pre::before { content: "Assembly" !important; }
+
+/* 4-3. 범용 시스템 및 응용 프로그래밍 언어 */
+[class*="language-c "] pre::before, [class*="highlight-source-c "] pre::before { content: "C" !important; }
+[class*="cpp"] pre::before, [class*="cxx"] pre::before { content: "C++" !important; }
+[class*="java"] pre::before { content: "Java" !important; }
+[class*="go"] pre::before { content: "Go" !important; }
+[class*="rust"] pre::before, [class*="rs"] pre::before { content: "Rust" !important; }
+[class*="swift"] pre::before { content: "Swift" !important; }
+[class*="kotlin"] pre::before, [class*="kt"] pre::before { content: "Kotlin" !important; }
+[class*="csharp"] pre::before, [class*="cs"] pre::before { content: "C#" !important; }
+
+/* 4-4. 웹 프론트엔드 및 서버 사이드 마크업 */
+[class*="html"] pre::before { content: "HTML" !important; }
+[class*="css"] pre::before { content: "CSS" !important; }
+[class*="javascript"] pre::before, [class*="js"] pre::before { content: "JavaScript" !important; }
+[class*="typescript"] pre::before, [class*="ts"] pre::before { content: "TypeScript" !important; }
+[class*="php"] pre::before { content: "PHP" !important; }
+
+/* 4-5. 데이터 포맷 및 기타 설정 파일 */
+[class*="json"] pre::before { content: "JSON" !important; }
+[class*="yaml"] pre::before, [class*="yml"] pre::before { content: "YAML" !important; }
+[class*="xml"] pre::before { content: "XML" !important; }
+[class*="sql"] pre::before { content: "SQL" !important; }
+[class*="markdown"] pre::before, [class*="md"] pre::before { content: "Markdown" !important; }
