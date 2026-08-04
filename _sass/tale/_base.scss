@@ -108,9 +108,10 @@ body.dark-mode {
     color: #ffffff;
   }
 
-  /* 💡 핵심 해결: 밤 모드일 때 네비게이션 하단 구분선(그림자) 색상을 하단 선과 동일하게 부드러운 톤으로 동기화 */
+  /* 💡 밤 모드 상단 구분선(실선)을 하단 구분선과 완벽히 동기화 */
   .nav {
-    box-shadow: 0 2px 2px -2px rgba(255, 255, 255, 0.15) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: none !important; /* 그림자 완전 차단 */
   }
 
   /* 1. 네비게이션 바 텍스트 색상 */
