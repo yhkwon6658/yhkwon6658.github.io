@@ -41,12 +41,12 @@
     display: flex;
     justify-content: space-between;
     padding: 5px 0;
-    text-decoration: none; /* 👈 전역 링크의 밑줄 효과 차단 */
-    color: $default-color; /* 👈 전역 링크의 파란색 차단 */
+    text-decoration: none !important; /* 👈 기본 밑줄 강제 차단 */
+    color: $default-color;
 
     &-title {
       color: $default-color;
-      text-decoration: none;
+      text-decoration: none !important; /* 👈 제목 텍스트 기본 밑줄 강제 차단 */
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -67,10 +67,14 @@
 
     &:hover,
     &:active {
-      text-decoration: none; /* 👈 _post.scss의 마우스 오버 밑줄 강제 차단 */
+      text-decoration: none !important; /* 👈 마우스 올릴 때 생기는 기본 밑줄 차단 */
+
+      .tags-post-title {
+        text-decoration: none !important;
+      }
       
       .tags-post-line {
-        width: 3rem;
+        width: 3rem; /* 👈 이 커스텀 밑줄만 예쁘게 길어집니다 */
       }
 
       .tags-post-meta {
