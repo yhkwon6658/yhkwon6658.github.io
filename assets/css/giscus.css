@@ -1,0 +1,22 @@
+/* 화이트 모드 기본 드래그 - 초록색 계열 */
+::selection {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: inherit;
+}
+::-moz-selection {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: inherit;
+}
+
+/* 다크 모드 활성화 시 드래그 - 노란색 계열 */
+/* Giscus는 다크 모드일 때 body에 data-theme="dark" 등의 속성을 부여하므로 이를 타겟팅합니다 */
+main[data-theme*="dark"] ::selection,
+.giscus-frame[data-theme*="dark"] ::selection {
+  background-color: rgba(234, 179, 8, 0.4);
+  color: inherit;
+}
+main[data-theme*="dark"] ::-moz-selection,
+.giscus-frame[data-theme*="dark"] ::-moz-selection {
+  background-color: rgba(234, 179, 8, 0.4);
+  color: inherit;
+}
