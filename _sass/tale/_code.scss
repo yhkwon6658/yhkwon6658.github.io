@@ -52,22 +52,23 @@ div.highlighter-rouge, figure.highlight {
   }
 
   /* 내부 중첩된 컨테이너 투명화 및 초기화 (버튼 중복 생성 방지) */
-  /* 내부 중첩된 컨테이너 투명화 및 초기화 (버튼 중복 생성 방지) */
   .highlight {
     background: transparent;
     margin: 0;
     padding: 0;
     border-radius: 0;
-    position: relative; /* 제목 요소의 절대 좌표 기준점 설정을 위해 추가 */
+    position: relative; 
 
     /* 상단 버튼 옆에 출력될 블록 제목 요소 */
     &::before {
       position: absolute;
-      /* 부모 요소의 상단 padding(42px) 영역 내에서 버튼(top: 14px)과 수평을 맞추기 위한 상향 조정 */
       top: -28px; 
-      /* 부모 좌측 패딩(15px)과 3개의 버튼이 차지하는 공간 우측에 배치되도록 설정 */
-      left: 60px; 
-      color: rgba(255, 255, 255, 0.5);
+      /* 초록색 버튼 우측 끝단(67px)을 기준으로 15px의 여백을 두어 82px로 설정 */
+      left: 82px; 
+      /* 반투명한 색상에서 완전한 불투명 흰색으로 변경 */
+      color: #ffffff; 
+      /* 눈에 잘 띄도록 폰트 굵기를 굵게 설정 */
+      font-weight: bold; 
       font-family: $monospaced;
       font-size: 13px;
       line-height: 12px;
