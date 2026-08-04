@@ -31,14 +31,17 @@
         isDark = false;
       }
 
-      // --- [변경] Giscus 실시간 테마 연동 ---
+      // --- [수정] Giscus 실시간 테마 연동 강화 ---
       const iframe = document.querySelector('iframe.giscus-frame');
       if (iframe) {
         const theme = isDark ? 'dark' : 'light';
-        iframe.contentWindow.postMessage(
-          { giscus: { setConfig: { theme: theme } } },
-          'https://giscus.app'
-        );
+        iframe.contentWindow.postMessage({
+          giscus: {
+            setConfig: {
+              theme: theme
+            }
+          }
+        }, 'https://giscus.app');
       }
     });
   </script>

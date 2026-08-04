@@ -1,6 +1,6 @@
 /* Giscus Custom Theme - Modern & Clean Style */
 
-/* 1. 라이트 모드 컬러 변수 및 스타일 */
+/* 1. 라이트 모드 컬러 변수 */
 main {
   --color-canvas-default: #ffffff;
   --color-canvas-subtle: #f8fafc;
@@ -19,9 +19,9 @@ main {
   color: inherit;
 }
 
-/* 2. 다크 모드 컬러 변수 및 스타일 */
-main[data-theme*="dark"],
-.giscus-frame[data-theme*="dark"] {
+/* 2. 다크 모드 컬러 변수 (정확한 data-theme="dark" 매칭) */
+main[data-theme="dark"],
+.giscus-frame[data-theme="dark"] {
   --color-canvas-default: #1e293b;
   --color-canvas-subtle: #0f172a;
   --color-border-default: #334155;
@@ -34,13 +34,13 @@ main[data-theme*="dark"],
 }
 
 /* 다크 모드 드래그 색상 (노란 계열) */
-main[data-theme*="dark"] ::selection,
-.giscus-frame[data-theme*="dark"] ::selection {
+main[data-theme="dark"] ::selection,
+.giscus-frame[data-theme="dark"] ::selection {
   background-color: rgba(234, 179, 8, 0.4);
   color: inherit;
 }
 
-/* 3. 컴포넌트 모던화 (둥근 모서리 및 부드러운 패딩) */
+/* 3. 컴포넌트 디자인 정리 */
 .form-control, 
 textarea.form-control,
 .TextInput {
@@ -56,7 +56,6 @@ textarea.form-control:focus {
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
 }
 
-/* 버튼 스타일 세련되게 다듬기 */
 .btn {
   border-radius: 8px !important;
   font-weight: 500 !important;
@@ -74,7 +73,6 @@ textarea.form-control:focus {
   border-color: #059669 !important;
 }
 
-/* 댓글 박스 컨테이너 카드형태로 정돈 */
 .timeline-comment,
 .comment {
   border-radius: 10px !important;
