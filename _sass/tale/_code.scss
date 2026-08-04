@@ -52,11 +52,26 @@ div.highlighter-rouge, figure.highlight {
   }
 
   /* 내부 중첩된 컨테이너 투명화 및 초기화 (버튼 중복 생성 방지) */
+  /* 내부 중첩된 컨테이너 투명화 및 초기화 (버튼 중복 생성 방지) */
   .highlight {
     background: transparent;
     margin: 0;
     padding: 0;
     border-radius: 0;
+    position: relative; /* 제목 요소의 절대 좌표 기준점 설정을 위해 추가 */
+
+    /* 상단 버튼 옆에 출력될 블록 제목 요소 */
+    &::before {
+      position: absolute;
+      /* 부모 요소의 상단 padding(42px) 영역 내에서 버튼(top: 14px)과 수평을 맞추기 위한 상향 조정 */
+      top: -28px; 
+      /* 부모 좌측 패딩(15px)과 3개의 버튼이 차지하는 공간 우측에 배치되도록 설정 */
+      left: 60px; 
+      color: rgba(255, 255, 255, 0.5);
+      font-family: $monospaced;
+      font-size: 13px;
+      line-height: 12px;
+    }
   }
 
   pre {
@@ -140,3 +155,12 @@ div.highlighter-rouge, figure.highlight {
 .highlight .vi { color: #033 } /* Name.Variable.Instance */
 .highlight .il { color: #f60 } /* Literal.Number.Integer.Long */
 .css .o, .css .o + .nt, .css .nt + .nt { color: #999; }
+
+/* ==========================================================================
+   4. 코드 블록 언어별 상단 제목 매핑
+   ========================================================================== */
+div.language-bash .highlight::before { content: "Bash"; }
+div.language-python .highlight::before { content: "Python"; }
+div.language-html .highlight::before { content: "HTML"; }
+div.language-css .highlight::before { content: "CSS"; }
+/* 필요한 언어를 위와 같은 방식으로 추가 */
