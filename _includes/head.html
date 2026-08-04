@@ -27,88 +27,8 @@
     gtag('config', 'G-G87HD3KC9S');
   </script>
 
+  <!-- 다크 모드 토글 버튼 설정 -->
   <style>
-    /* ==========================================
-       1. 다크 모드 텍스트 및 배경 색상 강제 적용
-       ========================================== */
-    body.dark-mode { background-color: #121212 !important; color: #e0e0e0 !important; }
-    
-    body.dark-mode a { color: #58a6ff !important; }
-    body.dark-mode a:hover { color: #79c0ff !important; }
-
-    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, 
-    body.dark-mode h4, body.dark-mode h5, body.dark-mode h6,
-    body.dark-mode .post-title, body.dark-mode .catalogue-title,
-    body.dark-mode .tags-item-label, body.dark-mode .tags-post-title,
-    body.dark-mode .nav-title {
-        color: #ffffff !important;
-    }
-
-    body.dark-mode .post-info, body.dark-mode .post-info *, 
-    body.dark-mode .catalogue-time, body.dark-mode .tags-post-meta time,
-    body.dark-mode footer span {
-        color: #a1a1aa !important;
-    }
-
-    body.dark-mode .nav-container { background-color: #121212 !important; }
-    body.dark-mode .nav-container a { color: #e0e0e0 !important; }
-    body.dark-mode .nav-container a:hover { color: #ffffff !important; }
-
-    body.dark-mode p code, body.dark-mode li code {
-        background-color: #333333 !important;
-        color: #ff7b72 !important;
-    }
-
-    /* ==========================================
-       2. 맥OS 스타일 코드박스 (중첩 방지 해결판)
-       ========================================== */
-    /* 최상위 컨테이너(가장 바깥 상자)에만 배경과 버튼 여백 적용 */
-    div.highlighter-rouge {
-        background-color: #282c34 !important;
-        border-radius: 8px !important;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
-        position: relative !important;
-        margin: 1.5em 0 !important;
-        padding: 40px 15px 15px 15px !important;
-    }
-
-    /* 맥 스타일 윈도우 버튼 (최상위 컨테이너에만 1번 그림) */
-    div.highlighter-rouge::before {
-        content: "";
-        position: absolute;
-        top: 14px;
-        left: 15px;
-        width: 12px;
-        height: 12px;
-        background-color: #ff5f56 !important;
-        border-radius: 50% !important;
-        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f !important;
-        z-index: 10 !important;
-    }
-
-    /* 🔥 [핵심] 내부 중첩 요소들(highlight, pre, code)은 투명하게 초기화 */
-    div.highlighter-rouge .highlight, 
-    div.highlighter-rouge pre, 
-    div.highlighter-rouge code {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        color: #abb2bf !important;
-        overflow-x: auto !important;
-        font-family: 'D2Coding', 'Consolas', monospace !important;
-    }
-
-    /* 혹시 내부에 또 버튼이 생기는 것을 완벽히 차단 */
-    div.highlighter-rouge .highlight::before, 
-    div.highlighter-rouge pre::before, 
-    div.highlighter-rouge code::before {
-        content: none !important;
-        display: none !important;
-    }
-    
-    /* 다크 모드 토글 버튼 설정 */
     #theme-toggle { all: unset; cursor: pointer; font-size: 20px; }
     #theme-toggle:hover { transform: scale(1.1); transition: transform 0.2s ease-in-out; }
   </style>

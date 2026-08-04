@@ -64,3 +64,57 @@ img {
 td {
   vertical-align: top;
 }
+
+/* ==========================================================================
+   Dark Mode Global Styles
+   ========================================================================== */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+
+  a {
+    color: #58a6ff;
+    &:hover { color: #79c0ff; }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+  }
+
+  /* 1. 네비게이션 바 */
+  .nav-container {
+    background-color: #121212;
+    
+    .nav-title {
+      color: #ffffff;
+    }
+    
+    a {
+      color: #e0e0e0;
+      &:hover { color: #ffffff; }
+    }
+  }
+
+  /* 2. 글 제목 및 카테고리 타이틀 */
+  .post-title,
+  .catalogue-title,
+  .tags-item-label,
+  .tags-post-title {
+    color: #ffffff;
+  }
+
+  /* 3. 날짜, 작성자, 부가 정보 (회색빛 텍스트) */
+  .post-info,
+  .post-info span,
+  .catalogue-time,
+  .tags-post-meta time,
+  footer span {
+    color: #a1a1aa;
+  }
+
+  /* 4. 다크 모드용 인라인 코드 색상 */
+  p > code, li > code, td > code {
+    background-color: #333333;
+    color: #ff7b72;
+  }
+}

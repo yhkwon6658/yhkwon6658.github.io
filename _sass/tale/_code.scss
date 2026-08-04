@@ -1,0 +1,61 @@
+pre,
+code {
+  font-family: $monospaced;
+}
+
+/* 1. 인라인 코드 (문장 중간에 들어가는 짧은 코드) */
+p > code, li > code, td > code {
+  background-color: $grey-3;
+  border-radius: 3px;
+  color: $code-color;
+  font-size: 85%;
+  padding: .25em .5em;
+}
+
+/* 2. 맥OS 스타일 코드 블록 (최상위 컨테이너) */
+div.highlighter-rouge, figure.highlight {
+  background-color: #282c34;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: 1.5em 0;
+  padding: 40px 15px 15px 15px;
+
+  /* 맥 스타일 윈도우 버튼 */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: #ff5f56;
+    border-radius: 50%;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+    z-index: 10;
+  }
+
+  /* 내부 중첩된 컨테이너 투명화 및 초기화 (버튼 중복 생성 방지) */
+  .highlight {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  pre {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: #abb2bf;
+    overflow-x: auto;
+  }
+
+  code {
+    background: transparent;
+    color: inherit;
+    font-size: 100%;
+    padding: 0;
+  }
+}
