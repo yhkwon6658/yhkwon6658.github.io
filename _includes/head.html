@@ -77,5 +77,45 @@
         transform: scale(1.1); /* 크기 확대 */
         transition: transform 0.2s ease-in-out; /* 부드러운 전환 */
     }
+
+    /* --- 맥OS 스타일 코드 블록 강제 커스텀 (head.html 내부에 추가) --- */
+    div.highlighter-rouge {
+        background-color: #282c34 !important; /* 다크 모드 어두운 배경 */
+        border-radius: 8px !important;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+        position: relative !important;
+        margin: 1.5em 0 !important;
+    }
+
+    /* 맥 스타일 윈도우 버튼 (빨강, 노랑, 초록 점) */
+    div.highlighter-rouge::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 14px !important;
+        left: 15px !important;
+        width: 12px !important;
+        height: 12px !important;
+        background-color: #ff5f56 !important; /* 빨강 */
+        border-radius: 50% !important;
+        box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f !important; /* 노랑, 초록 */
+        z-index: 10 !important;
+    }
+
+    div.highlighter-rouge .highlight {
+        margin: 0 !important;
+    }
+
+    div.highlighter-rouge .highlight pre.highlight {
+        padding: 40px 15px 15px 15px !important; /* 상단 버튼 공간 40px 확보 */
+        margin: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        overflow-x: auto !important;
+        font-family: 'D2Coding', 'Consolas', monospace !important;
+        color: #abb2bf !important; /* 어두운 배경에 어울리는 밝은 글씨색 */
+    }
+
+
+
   </style>
 </head>
