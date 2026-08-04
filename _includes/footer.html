@@ -31,16 +31,14 @@
         isDark = false;
       }
 
-      // --- [신규 추가] Disqus 실시간 색반전 리로드 연동 ---
-      if (typeof DISQUS !== 'undefined') {
-        DISQUS.reset({
-          reload: true,
-          config: function () {
-            // 필요시 페이지 고유 설정 유지
-            this.page.identifier = PAGE_IDENTIFIER; 
-            this.page.url = PAGE_URL;
-          }
-        });
+      // --- [변경] Giscus 실시간 테마 연동 ---
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe) {
+        const theme = isDark ? 'dark' : 'light';
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: theme } } },
+          'https://giscus.app'
+        );
       }
     });
   </script>
