@@ -19,15 +19,11 @@ layout: default
 
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-line"> </div>
+  <!-- 이전의 body 태그, img 태그, 인라인 스타일 모두 제거 -->
   {% if page.tags %}
-    <body>
-      <div style="float:left; margin-right:3px;">
-        <img src="/assets/tags/tags-32x32.png" alt=""> 
-      </div>
-      <div style="float:left;">
+    <div class="post-tags">
       <a href="{{ '/tags' | prepend: site.baseurl }}">{{ page.tags }}</a>
-      </div><div style="clear:both;"></div>
-    </body>
+    </div>
   {% endif %}
 
   {{ content }}
