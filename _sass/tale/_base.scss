@@ -106,10 +106,6 @@ body.dark-mode {
     border-bottom-color: rgba(255, 255, 255, 0.3) !important;
   }
 
-  .pagination {
-    border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
-  }
-
   .nav-container {
     background-color: #121212;
     
@@ -134,12 +130,11 @@ body.dark-mode {
     color: #cccccc;
   }
 
+  /* .pagination 관련 스타일은 _pagination.scss로 이관됨 */
   .post-info,
   .post-info span,
   .catalogue-time,
   .tags-post-meta time,
-  .pagination,
-  .pagination .top,
   footer span {
     color: #cccccc !important;
   }
