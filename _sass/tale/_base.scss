@@ -167,6 +167,11 @@ body.dark-mode {
       text-decoration: underline;
     }
   }
+
+  /* 다크 모드 시 캡션 색상 변경 */
+  .post figure figcaption {
+    color: #aaaaaa; // 다크 모드에서 가독성 좋은 밝은 회색
+  }
 }
 
 /* 전역 스타일 파일에 추가 (예: _sass/tale/_base.scss) */

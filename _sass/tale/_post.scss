@@ -62,6 +62,24 @@
     margin: 0;
   }
 
+  /* 이미지 및 캡션 기본 스타일 */
+  figure {
+    text-align: center;
+    margin: 2rem 0;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px; // 이미지 모서리를 살짝 둥글게 (선택 사항)
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-size: 0.85em;
+      color: #666666; // 라이트 모드 기본 캡션 색상 (차분한 회색)
+    }
+  }
+
   /* 💡 2. 모바일 반응형 최적화 (여백 및 크기 통합 조정) */
   @media (max-width: 600px) {
     padding: 1.5rem 0; /* 포스트 전체 상하 여백 축소 */
