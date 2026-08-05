@@ -87,18 +87,18 @@
   }
 
   .post-content {
-    /* 💡 진한 네이비 느낌의 텍스트 링크 스타일 */
+    /* 💡 인디고 블루 톤 링크 (보라색 #9333ea와 조화로운 구성) */
     a {
-      color: #1e3a8a; /* 묵직하고 선명한 딥 네이비 (Deep Navy) */
+      color: #4f46e5; /* 세련되고 깊이감 있는 인디고 블루 (Tailwind Indigo 600) */
       text-decoration: none;
-      border-bottom: 1px solid rgba(30, 58, 138, 0.3);
+      border-bottom: 1px solid rgba(79, 70, 229, 0.3);
       transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
       padding-bottom: 1px;
 
       &:hover {
-        color: #1d4ed8; /* 마우스 오버 시 가독성을 높인 선명한 로열 블루 톤 */
-        border-bottom-color: rgba(29, 78, 216, 0.5);
-        background-color: rgba(30, 58, 138, 0.06);
+        color: #6366f1; /* 마우스 오버 시 부드럽고 화사하게 밝아지는 인디고 톤 */
+        border-bottom-color: rgba(99, 102, 241, 0.5);
+        background-color: rgba(79, 70, 229, 0.04);
         border-radius: 2px;
       }
     }
