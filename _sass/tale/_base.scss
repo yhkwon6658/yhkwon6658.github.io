@@ -169,7 +169,21 @@ body.dark-mode {
     }
   }
 
-  /* 💡 다크 모드 시 캡션과 백틱 앵커 링크 스타일 (태그 다크모드 색상과 통일) */
+  /* 💡 1. 다크 모드 본문 일반 링크 (노란색 하이라이트와 어울리는 주황색 톤) */
+  .post-content a {
+    color: #ff9800; /* 선명한 주황색 */
+    border-bottom: 1px solid rgba(255, 152, 0, 0.3);
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      color: #ffcc80; /* 마우스 오버 시 파스텔톤으로 은은하게 연해짐 */
+      border-bottom-color: rgba(255, 204, 128, 0.5);
+      background-color: rgba(255, 152, 0, 0.08); /* 텍스트 뒤에 옅은 주황빛 스며듦 */
+      border-radius: 2px;
+    }
+  }
+
+  /* 💡 2. 다크 모드 시 캡션과 백틱 앵커 링크 스타일 (사용자님의 기존 세팅 유지!) */
   .post figure figcaption,
   .post-content a code {
     background-color: rgba(255, 255, 255, 0.1);

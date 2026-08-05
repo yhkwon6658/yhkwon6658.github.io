@@ -87,18 +87,20 @@
   }
 
   .post-content {
-    /* 일반 텍스트 링크 (파란색 유지) */
+    /* 💡 일반 텍스트 링크 (초록색 하이라이트와 어울리는 푸른색 톤) */
     a {
-      color: #0366d6;
+      color: #005bb5; /* 깊고 차분한 푸른색 */
       text-decoration: none;
-      border-bottom: 1px solid rgba(3, 102, 214, 0.3);
-      transition: all 0.2s ease-in-out;
+      border-bottom: 1px solid rgba(0, 91, 181, 0.3); /* 은은한 밑줄 */
       padding-bottom: 1px;
+      
+      /* 변화가 스르륵 일어나도록 애니메이션 시간(0.3s) 부여 */
+      transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
 
       &:hover {
-        color: #005cc5;
-        border-bottom-color: #005cc5;
-        background-color: rgba(3, 102, 214, 0.08);
+        color: #66a3ff; /* 마우스 오버 시 은은하고 밝게 연해짐 */
+        border-bottom-color: rgba(102, 163, 255, 0.5);
+        background-color: rgba(0, 91, 181, 0.04); /* 아주 옅은 배경이 스며듦 */
         border-radius: 2px;
       }
     }
