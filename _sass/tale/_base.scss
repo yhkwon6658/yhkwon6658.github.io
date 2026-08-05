@@ -174,16 +174,25 @@ body.dark-mode {
     color: #aaaaaa; // 다크 모드에서 가독성 좋은 밝은 회색
   }
 
-  /* 다크 모드 시 링크를 인라인 코드 스타일로 변경 */
-  .post a {
-    background-color: #333333; /* 사용자님의 다크모드 코드 배경색 */
-    color: #ff7b72;            /* 사용자님의 다크모드 코드 글자색 */
-    border-bottom: none;       /* 투명 밑줄 제거 */
+  /* ✅ 수정된 코드: 다크모드 시 본문 내부 링크만 인라인 코드 스타일로 변경 */
+  .post-content a {
+    background-color: #333333; /* 다크모드 코드 배경색 */
+    color: #ff7b72;            /* 다크모드 코드 글자색 */
+    border-bottom: none;       
 
     &:hover {
-      background-color: #444444; /* 마우스 오버 시 배경만 살짝 밝아짐 */
+      background-color: #444444; /* 마우스 오버 시 배경 살짝 밝게 */
       color: #ff7b72;
     }
+  }
+
+  /* 다크모드에서 링크 안의 인라인 코드(백틱) 예외 처리 */
+  .post-content a code {
+    color: #ff7b72; 
+  }
+
+  .post-content a:hover code {
+    background-color: #444444;
   }
 }
 
