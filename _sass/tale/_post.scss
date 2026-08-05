@@ -88,7 +88,7 @@
 
   .post-content {
     /* 💡 비비드 블루 톤 링크 (보라색 #9333ea와 선명한 대비를 이루는 구성) */
-    a {
+    a:not(.tags-post) {
       color: #2563eb; /* 선명하고 청량한 비비드 블루 (Tailwind Blue 600) */
       text-decoration: none;
       border-bottom: 1px solid rgba(37, 99, 235, 0.3);
