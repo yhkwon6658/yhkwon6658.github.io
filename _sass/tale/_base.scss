@@ -199,13 +199,13 @@ body.dark-mode {
 }
 
 /* 전역 스타일 파일에 추가 (예: _sass/tale/_base.scss) */
-/* 1. 화이트 모드 (기본) 본문 드래그 - 초록색 계열 */
+/* 1. 화이트 모드 (기본) 본문 드래그 - 연한 아쿠아/청록 계통 */
 ::selection {
-  background-color: rgba(34, 197, 94, 0.3); 
+  background-color: rgba(20, 184, 166, 0.25); 
   color: inherit;
 }
 ::-moz-selection {
-  background-color: rgba(34, 197, 94, 0.3);
+  background-color: rgba(20, 184, 166, 0.25);
   color: inherit;
 }
 
