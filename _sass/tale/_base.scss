@@ -173,6 +173,18 @@ body.dark-mode {
   .post figure figcaption {
     color: #aaaaaa; // 다크 모드에서 가독성 좋은 밝은 회색
   }
+
+  /* 다크 모드 시 링크를 인라인 코드 스타일로 변경 */
+  .post a {
+    background-color: #333333; /* 사용자님의 다크모드 코드 배경색 */
+    color: #ff7b72;            /* 사용자님의 다크모드 코드 글자색 */
+    border-bottom: none;       /* 투명 밑줄 제거 */
+
+    &:hover {
+      background-color: #444444; /* 마우스 오버 시 배경만 살짝 밝아짐 */
+      color: #ff7b72;
+    }
+  }
 }
 
 /* 전역 스타일 파일에 추가 (예: _sass/tale/_base.scss) */

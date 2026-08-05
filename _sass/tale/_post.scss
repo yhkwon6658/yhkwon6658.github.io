@@ -82,6 +82,24 @@
     }
   }
 
+  /* 본문 내 앵커 및 일반 링크 (인라인 코드 스타일) */
+  a {
+    font-family: "JetBrains Mono", monospace; /* 블로그의 코드 전용 폰트 */
+    background-color: rgba(27, 31, 35, 0.05); /* 라이트 모드 인라인 코드 배경색 */
+    color: #eb5757; /* 라이트 모드 인라인 코드 붉은색 계열 */
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: rgba(27, 31, 35, 0.12); /* 마우스 오버 시 배경이 살짝 진해짐 */
+      color: #eb5757; 
+      border-bottom: none; /* 밑줄 효과 끄기 */
+    }
+  }
+
   /* 💡 2. 모바일 반응형 최적화 (여백 및 크기 통합 조정) */
   @media (max-width: 600px) {
     padding: 1.5rem 0; /* 포스트 전체 상하 여백 축소 */
