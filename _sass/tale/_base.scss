@@ -170,7 +170,7 @@ body.dark-mode {
   }
 
   /* 💡 1. 다크 모드 본문 일반 링크 (노란색 하이라이트와 어울리는 주황색 톤) */
-  .post-content a:not(.tags-post) {
+  .post-content a:not(.tags-post):not(.tag-badge) {
     color: #ff9800; /* 선명한 주황색 */
     border-bottom: 1px solid rgba(255, 152, 0, 0.3);
     transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
