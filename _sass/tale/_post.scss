@@ -87,18 +87,18 @@
   }
 
   .post-content {
-    /* 💡 일반 텍스트 링크 (초록색 하이라이트와 어울리는 푸른색 톤) */
+    /* 💡 진한 네이비 느낌의 텍스트 링크 스타일 */
     a {
-      color: #0284c7; /* 선명하고 예쁜 블루 링크 */
+      color: #1e3a8a; /* 묵직하고 선명한 딥 네이비 (Deep Navy) */
       text-decoration: none;
-      border-bottom: 1px solid rgba(2, 132, 199, 0.3);
+      border-bottom: 1px solid rgba(30, 58, 138, 0.3);
       transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
       padding-bottom: 1px;
 
       &:hover {
-        color: #38bdf8; /* 마우스 오버 시 연한 하늘빛으로 부드럽게 연해짐 */
-        border-bottom-color: rgba(56, 189, 248, 0.5);
-        background-color: rgba(2, 132, 199, 0.04);
+        color: #1d4ed8; /* 마우스 오버 시 가독성을 높인 선명한 로열 블루 톤 */
+        border-bottom-color: rgba(29, 78, 216, 0.5);
+        background-color: rgba(30, 58, 138, 0.06);
         border-radius: 2px;
       }
     }
