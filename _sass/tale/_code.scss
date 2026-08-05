@@ -7,9 +7,9 @@ code {
    1. 인라인 코드 (문장 중간에 들어가는 짧은 코드)
    ========================================================================== */
 p > code, li > code, td > code {
-  background-color: $grey-3;
+  background-color: $grey-3; /* 기존 배경색 유지 */
   border-radius: 3px;
-  color: $code-color;
+  color: #003d80; /* 👈 $code-color 대신 진한 파란색으로 변경! */
   font-size: 85%;
   padding: .25em .5em;
 }
