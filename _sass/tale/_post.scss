@@ -105,10 +105,10 @@
 
     /* 💡 백틱이 들어간 앵커 링크([`Figure 1`](#) 등)를 캡션/태그 스타일과 통일 */
     a:has(code) {
-      border-bottom: none;
+      border-bottom: none !important;
       background-color: transparent !important;
       padding: 0;
-      text-decoration: none;
+      text-decoration: none !important;
     }
 
     a code {
