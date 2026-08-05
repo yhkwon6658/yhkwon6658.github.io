@@ -14,6 +14,7 @@ html {
   font-family: $serif-primary;
   font-size: 14px;
   overflow-y: scroll;
+  scroll-behavior: smooth; /* 👈 바로 여기에 추가해 주세요! */
 
   @media (min-width: 600px) {
     font-size: 16px;
