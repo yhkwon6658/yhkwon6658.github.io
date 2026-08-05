@@ -28,7 +28,6 @@
       font-family: $sans-serif;
       color: $default-color;
 
-      /* SVG 대신 CSS로 해시태그 디자인 삽입 */
       &::before {
         content: '# ';
         color: $default-tint;
@@ -41,18 +40,20 @@
     display: flex;
     justify-content: space-between;
     padding: 5px 0;
-    text-decoration: none !important; /* 👈 기본 밑줄 강제 차단 */
+    text-decoration: none !important; 
     color: $default-color;
 
     &-title {
       color: $default-color;
-      text-decoration: none !important; /* 👈 제목 텍스트 기본 밑줄 강제 차단 */
+      text-decoration: none !important; 
       
-      /* 기존 말줄임표(nowrap) 속성을 제거하고 자연스러운 줄바꿈 허용 */
+      /* 기기 폭을 넘어가면 무조건 줄바꿈 하도록 강제 설정 */
       white-space: normal !important;  
-      word-break: keep-all;            
+      word-break: break-word; /* 👈 keep-all 대신 글자 단위로 쪼개서라도 줄바꿈 */
       overflow-wrap: break-word;       
       line-height: 1.4;
+      flex: 1;         /* Flex 환경에서 공간 차지 최적화 */
+      min-width: 0;    /* 👈 Flex 자식 요소가 컨테이너를 뚫고 나가는 현상 방지 */
     }
 
     &-line {
@@ -70,14 +71,14 @@
 
     &:hover,
     &:active {
-      text-decoration: none !important; /* 👈 마우스 올릴 때 생기는 기본 밑줄 차단 */
+      text-decoration: none !important; 
 
       .tags-post-title {
         text-decoration: none !important;
       }
       
       .tags-post-line {
-        width: 3rem; /* 👈 이 커스텀 밑줄만 예쁘게 길어집니다 */
+        width: 3rem; 
       }
 
       .tags-post-meta {
@@ -87,26 +88,26 @@
   }
 }
 
-/* 모바일 화면(600px 이하) 반응형 레이아웃 적용 */
+/* 📱 모바일 환경(600px 이하) 가로 스크롤 완벽 차단 레이아웃 */
 @media (max-width: 600px) {
   .tags-post {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem;
-    padding: 0.8rem 0;
+    display: block; /* Flex를 해제하고 Block으로 변경하여 100% 폭 제한 */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 0;
   }
 
   .tags-post-title {
-    font-size: 1.1rem;
+    display: block;
+    font-size: 1.15rem;
     margin-right: 0;
+    margin-bottom: 0.4rem; /* 제목과 날짜 사이 간격 */
   }
 
   .tags-post-meta {
+    display: block;
+    text-align: left; /* 우측 정렬을 좌측으로 변경 */
     font-size: 0.85rem;
-    color: #888888;
-  }
-
-  .tags-post-meta time {
     color: #888888;
   }
 }
