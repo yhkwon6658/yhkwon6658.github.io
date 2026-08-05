@@ -13,11 +13,11 @@ main {
 
 /* 화이트 모드 드래그 - 초록색 계열 */
 ::selection {
-  background-color: rgba(34, 197, 94, 0.3);
+  background-color: rgba(20, 184, 166, 0.25); 
   color: inherit;
 }
 ::-moz-selection {
-  background-color: rgba(34, 197, 94, 0.3);
+  background-color: rgba(20, 184, 166, 0.25);
   color: inherit;
 }
 
