@@ -87,18 +87,18 @@
   }
 
   .post-content {
-    /* 💡 인디고 블루 톤 링크 (보라색 #9333ea와 조화로운 구성) */
+    /* 💡 비비드 블루 톤 링크 (보라색 #9333ea와 선명한 대비를 이루는 구성) */
     a {
-      color: #4f46e5; /* 세련되고 깊이감 있는 인디고 블루 (Tailwind Indigo 600) */
+      color: #2563eb; /* 선명하고 청량한 비비드 블루 (Tailwind Blue 600) */
       text-decoration: none;
-      border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+      border-bottom: 1px solid rgba(37, 99, 235, 0.3);
       transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
       padding-bottom: 1px;
 
       &:hover {
-        color: #6366f1; /* 마우스 오버 시 부드럽고 화사하게 밝아지는 인디고 톤 */
-        border-bottom-color: rgba(99, 102, 241, 0.5);
-        background-color: rgba(79, 70, 229, 0.04);
+        color: #3b82f6; /* 마우스 오버 시 한층 더 화사하고 밝아지는 블루 톤 */
+        border-bottom-color: rgba(59, 130, 246, 0.5);
+        background-color: rgba(37, 99, 235, 0.04);
         border-radius: 2px;
       }
     }
