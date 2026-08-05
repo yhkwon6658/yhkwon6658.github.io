@@ -169,30 +169,20 @@ body.dark-mode {
     }
   }
 
-  /* 다크 모드 시 캡션 색상 변경 */
+  /* 💡 다크 모드 시 캡션 배경 및 글자색 (라벤더 테마) */
   .post figure figcaption {
-    color: #aaaaaa; // 다크 모드에서 가독성 좋은 밝은 회색
+    background-color: rgba(210, 168, 255, 0.15); /* 부드러운 라벤더색 배경 */
+    color: #d2a8ff;                              /* 밝은 라벤더색 텍스트 */
   }
 
-  /* ✅ 수정된 코드: 다크모드 시 본문 내부 링크만 인라인 코드 스타일로 변경 */
-  .post-content a {
-    background-color: #333333; /* 다크모드 코드 배경색 */
-    color: #ff7b72;            /* 다크모드 코드 글자색 */
-    border-bottom: none;       
-
-    &:hover {
-      background-color: #444444; /* 마우스 오버 시 배경 살짝 밝게 */
-      color: #ff7b72;
-    }
-  }
-
-  /* 다크모드에서 링크 안의 인라인 코드(백틱) 예외 처리 */
+  /* 💡 다크모드에서 이미지 참조 앵커 링크(Figure 1)를 캡션과 통일 */
   .post-content a code {
-    color: #ff7b72; 
+    background-color: rgba(210, 168, 255, 0.15);
+    color: #d2a8ff;
   }
 
   .post-content a:hover code {
-    background-color: #444444;
+    background-color: rgba(210, 168, 255, 0.25); /* 마우스 오버 시 밝기 강조 */
   }
 }
 

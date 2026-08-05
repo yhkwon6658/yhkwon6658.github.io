@@ -62,7 +62,6 @@
     margin: 0;
   }
 
-  /* 이미지 및 캡션 기본 스타일 */
   figure {
     text-align: center;
     margin: 2rem 0;
@@ -70,38 +69,29 @@
     img {
       max-width: 100%;
       height: auto;
-      border-radius: 6px; // 이미지 모서리를 살짝 둥글게 (선택 사항)
+      border-radius: 6px;
     }
 
+    /* 💡 이미지 캡션을 예쁜 배지(Badge) 모양으로 변경 */
     figcaption {
-      margin-top: 8px;
-      font-size: 1em;
-      font-weight: semi-bold;
-      font-style: italic;
-      color: #666666; // 라이트 모드 기본 캡션 색상 (차분한 회색)
+      margin-top: 12px;
+      display: inline-block; /* 텍스트 길이에 맞게 배경 박스 크기 조절 */
+      padding: 0.3em 0.8em;
+      border-radius: 6px;    /* 모서리 둥글게 */
+      font-size: 0.9em;
+      font-weight: bold;
+      font-style: normal;    /* 배경이 있으므로 기울임꼴은 해제하는 것이 모던합니다 */
+      
+      /* 보라색 테마 (라이트 모드) */
+      background-color: rgba(111, 66, 193, 0.08); 
+      color: #6f42c1;
     }
   }
 
-  /* ✅ 수정된 코드: 본문 영역(post-content) 안의 링크에만 인라인 코드 스타일 적용 */
   .post-content {
-    a {
-      font-family: "JetBrains Mono", monospace; /* 블로그의 코드 전용 폰트 */
-      background-color: rgba(27, 31, 35, 0.05);
-      color: #eb5757;
-      padding: 0.2em 0.4em;
-      border-radius: 3px;
-      font-size: 0.9em;
-      text-decoration: none;
-      transition: background-color 0.2s ease-in-out;
+    /* ... (일반 a 태그 스타일 유지) ... */
 
-      &:hover {
-        background-color: rgba(27, 31, 35, 0.12);
-        color: #eb5757;
-        border-bottom: none;
-      }
-    }
-
-    /* 💡 링크 안에 이미 인라인 코드가 있을 경우의 예외 처리 (`Figure 1` 등) */
+    /* 💡 링크 안의 코드(백틱)를 캡션과 완벽하게 동일한 배지 스타일로 렌더링 */
     a:has(code) {
       border-bottom: none;
       background-color: transparent !important;
@@ -109,12 +99,21 @@
     }
 
     a code {
-      color: #eb5757;
+      font-family: inherit; /* 모노스페이스(코드 폰트) 대신 일반 본문 폰트 상속 */
+      font-size: 0.9em;
+      font-weight: bold;
+      border-radius: 6px;
+      padding: 0.2em 0.5em;
+      
+      /* 캡션과 동일한 보라색 테마 (라이트 모드) */
+      background-color: rgba(111, 66, 193, 0.08);
+      color: #6f42c1;
       transition: background-color 0.2s ease-in-out;
     }
 
     a:hover code {
-      background-color: rgba(27, 31, 35, 0.12);
+      background-color: rgba(111, 66, 193, 0.18); /* 마우스 올렸을 때 배경색 강조 */
+      text-decoration: none;
     }
   }
 
