@@ -75,3 +75,4 @@ weights = model.get_weights()
 print('weight check')
 print(f'first convolution layer:\t{weights[0].T.shape}') # 32 x 1 x 5 x 5
 print(f'second convolution layer:\t{weights[2].T.shape}') # 64 x 32 x 2 x 2
+```
