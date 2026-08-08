@@ -134,7 +134,9 @@ Twiddle factor의 Exponent는 연산의 가짓수를 결정짓는 $k$와 stride�
 
 ---
 
-## 6. Data Processing (MATLAB)
+## 6. How to Run
+
+### Step 1. Data Processing (MATLAB)
 
 입력 음원 데이터에서 원하는 구간을 샘플링하여 64-bit Hexadecimal 포맷(.txt)으로 변환합니다.
 
@@ -172,3 +174,34 @@ fclose(fileID);
 fprintf('Sample Rate: %d\n', Fs);
 fprintf('# Sample: %d\nDONE\n', L);
 ```
+
+이후 DATA/twiddlegen.c를 컴파일하여 Twiddle factor LUT 데이터를 생성합니다. (CORDIC 대신 LUT 방식을 채택하여 메모리를 활용했습니다.)
+
+### Step 2. Synthesis and Porting (Verilog)
+
+시스템 사양(Radix-2, 32-point 등)에 맞게 `Top.v`의 파라미터를 조정합니다.
+
+```verilog
+module TOP #(
+    parameter CLKS_PER_BIT = 434,    // System Clock / Baudrate
+    parameter SIG_RUN = 82,          // UART 'R' 커맨드 ASCII
+    parameter SIG_STOP = 83,
+    parameter DATA_LENGTH = 256,     // 샘플 데이터 개수
+    parameter R = 5,                 // log_2(N)
+    parameter N = 32,                // FFT Point
+    parameter radix = 2,
+    parameter length = 32,
+    parameter ROMFILE = "TESTDATA.txt",
+    parameter TWIDDLEFILE = "TWIDDLE.txt"
+)
+```
+
+(주의: $N=64$, $R=6$ 등으로 확장할 경우, 내부 Addrgen 모듈의 instantiation 개수도 이에 맞게 물리적으로 늘려주어야 합니다.)
+
+### Step 3. Run SPECTRO GUI
+
+1. FPGA 포팅 완료 후 SPECTRO.exe 실행.
+2. Datainfo 탭에서 Sample length 입력.
+3. Setting 탭에서 Serial Port 선택 및 BaudRate 설정 (권장: 115200).
+4. Connect 클릭 후 Run 실행.
+5. Original Plot 및 PC 기반 FFT Plot이 출력되면, Stop 후 다시 Run을 눌러 하드웨어 연산 결과를 수신합니다. (타이밍 이슈로 밀림 현상 발생 시 FPGA 리셋 후 재시도)
