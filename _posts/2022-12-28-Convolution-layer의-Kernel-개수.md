@@ -7,7 +7,7 @@ comments: true
 excerpt_separator: ---
 ---
 
-과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. CNN 구조의 합성곱 계층(Convolution layer)에서 사용되는 필터(Filter)의 개수 산정 방식에 대해 정리합니다. 인터넷상에 종종 $N_{kernel} = N_{feature map}$으로 잘못 알려진 경우가 있으나, 이는 부정확한 정보입니다. 본 포스팅에서는 텐서플로우(TensorFlow) 코드를 통해 커널 개수에 대한 정확한 개념을 바로잡고자 합니다.
+과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. CNN 구조의 합성곱 계층(Convolution layer)에서 사용되는 필터(Filter)의 개수 산정 방식에 대해 정리합니다. 인터넷상에 종종 ($N_{kernel} = N_{$text{feature map}$}$)으로 잘못 알려진 경우가 있으나, 이는 부정확한 정보입니다. 본 포스팅에서는 텐서플로우(TensorFlow) 코드를 통해 커널 개수에 대한 정확한 개념을 바로잡고자 합니다.
 
 ---
 
