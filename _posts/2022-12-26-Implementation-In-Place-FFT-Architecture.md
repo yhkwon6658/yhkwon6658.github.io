@@ -134,9 +134,7 @@ Twiddle factor의 Exponent는 연산의 가짓수를 결정짓는 $k$와 stride�
 
 ---
 
-## 6. How to Run
-
-### Step 1. Data Processing (MATLAB)
+## 6. Data Processing (MATLAB)
 
 입력 음원 데이터에서 원하는 구간을 샘플링하여 64-bit Hexadecimal 포맷(.txt)으로 변환합니다.
 
