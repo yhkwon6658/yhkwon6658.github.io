@@ -210,23 +210,13 @@ vsim tb
 * `vlog`: 디렉터리 내의 모든 SystemVerilog(`.sv`) 파일을 컴파일합니다.
 * `vsim`: Top 모듈(`tb`)을 대상으로 시뮬레이터를 실행합니다.
 
-명령어를 실행하면 [`Figure 5`](#figure-5)와 같이 ModelSim (또는 Questa) GUI가 실행됩니다. 
-
-{% include image.html url="https://github.com/yhkwon6658/f2q/assets/120978778/11235cd6-b6ee-464f-ba10-3dff5925642b" text="Figure 5. ModelSim/QuestaSim 실행 화면" id="figure-5" %}
+명령어를 실행하면 ModelSim (또는 Questa) GUI가 실행됩니다. 
 
 > **💡 시뮬레이션 최적화 옵션 (Visibility 설정)**
 > 최신 버전의 Questa/ModelSim 엔진에서는 시뮬레이션 속도 향상을 위해 내부 Object들을 기본적으로 은닉(No design object visibility) 처리하는 경우가 있습니다. GUI 화면에서 Waveform을 정상적으로 추적하려면 시뮬레이션 시작 시 가시성 설정을 변경해야 합니다.
 
-1. 상단의 **Simulate - Start Simulation**을 누릅니다. ([`Figure 6`](#figure-6))
-
-{% include image.html url="https://github.com/yhkwon6658/f2q/assets/120978778/253708d2-097c-4fe7-bfa4-db84e73e6428" text="Figure 6. Start Simulation 창 진입" id="figure-6" %}
-
-2. `work` 디렉터리 하위의 `tb` 모듈을 선택한 후, 우측 하단의 **Optimization Options**를 클릭합니다. ([`Figure 7`](#figure-7))
-
-{% include image.html url="https://github.com/yhkwon6658/f2q/assets/120978778/fa8b7c2e-fcb1-47b7-bd4a-595bd38a28f0" text="Figure 7. Optimization Options 선택" id="figure-7" %}
-
-3. 가시성 탭에서 **Apply full visibility to all modules (vopt +acc)**를 체크한 후 확인을 누릅니다. ([`Figure 8`](#figure-8))
-
-{% include image.html url="https://github.com/yhkwon6658/f2q/assets/120978778/3d0a084d-2437-45c6-a1d2-4f722063d6a4" text="Figure 8. Full Visibility 옵션 적용" id="figure-8" %}
+1. 상단의 **Simulate - Start Simulation**을 누릅니다.
+2. `work` 디렉터리 하위의 `tb` 모듈을 선택한 후, 우측 하단의 **Optimization Options**를 클릭합니다.
+3. 가시성 탭에서 **Apply full visibility to all modules (vopt +acc)**를 체크한 후 확인을 누릅니다. 
 
 이 설정을 완료하면 원하는 Object를 Waveform 창에 추가하여 정상적으로 신호의 변화를 시뮬레이션할 수 있습니다. ModelSim 계열은 순수 로직 검증이나 알고리즘 모델링 시 작업 효율을 높이는 데 탁월한 선택이 될 것입니다.
