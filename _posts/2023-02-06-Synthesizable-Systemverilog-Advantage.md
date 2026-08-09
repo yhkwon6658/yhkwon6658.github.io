@@ -28,18 +28,18 @@ SystemVerilog에 도입된 새로운 데이터 타입 중 대표적인 것이 `b
 ## 2. enum의 활용
 SystemVerilog에 추가된 `enum`은 가독성을 높이고 코드 길이를 단축하는 데 매우 유용합니다.
 
-```systemverilog
+```verilog
 enum {WAITE, LOAD, DONE} State;
 ```
 위와 같이 type과 length를 생략할 경우, `enum`은 기본적으로 `int` (2-state, 32-bits) 타입으로 지정됩니다. 그러나 합성 시에는 4-state로 인식된다는 점을 유의해야 합니다. (참고로 SystemVerilog에는 4-state인 `integer`와 구분되는 2-state `int` 형식이 존재합니다.)
 
 합성을 고려한 가장 명시적이고 일반적인 코딩 스타일은 다음과 같습니다.
-```systemverilog
+```verilog
 enum logic [2:0] {WAITE, LOAD, DONE} State;
 ```
 위 선언에서 WAITE, LOAD, DONE은 순서대로 0, 1, 2의 값을 가집니다. 물론 아래와 같이 값을 직접 지정하는 것도 가능합니다.
 
-```systemverilog
+```verilog
 enum logic [2:0] {WAITE = 3'b100, LOAD = 3'b010, DONE = 3'b001} State;
 ```
 
@@ -50,7 +50,7 @@ enum logic [2:0] {WAITE = 3'b100, LOAD = 3'b010, DONE = 3'b001} State;
 ## 3. typedef (User-Defined-Type)
 SystemVerilog는 C 언어의 `typedef`와 같은 User-Defined-Type (UDT)을 지원합니다. UDT는 `enum`, `struct`와 결합되어 설계를 구조화하는 데 핵심적인 역할을 합니다.
 
-```systemverilog
+```verilog
 typedef logic [31:0] bus32_t;
 typedef enum logic [0:0] {FALSE, TRUE} bool_t;
 
@@ -71,7 +71,7 @@ SystemVerilog는 신호들을 그룹화할 수 있는 구조체(`struct`)를 지
 
 아래는 `typedef`로 선언한 구조체를 파라미터화(Parameterizable)하여 사용하는 예시입니다.
 
-```systemverilog
+```verilog
 localparam N = 8; 
 
 typedef struct {
@@ -120,7 +120,7 @@ SystemVerilog가 제공하는 가장 강력한 설계 구조화 도구 중 하�
 ### Package 정의 및 사용 예시
 
 `package.sv`
-```systemverilog
+```verilog
 package TABLE;
     parameter N = 8;
     parameter L = 32;
@@ -136,7 +136,7 @@ endpackage
 ```
 
 `core1.sv` (Wildcard Import 활용)
-```systemverilog
+```verilog
 module core1 import TABLE::*; 
 (
     input bus_t a, b,
@@ -164,7 +164,7 @@ endmodule : core1
 > **Tip:** SystemVerilog에서는 `begin ... end`, `module ... endmodule` 등 Block 요소에 이름을 지정할 수 있습니다. 복잡한 조건문이 중첩될 때 이를 명시하면 코드의 가독성을 높이고 실수를 방지할 수 있습니다.
 
 `core2.sv` (Explicit Import 및 Reference 활용)
-```systemverilog
+```verilog
 module core2
 import TABLE::signal_s; // 특정 Item만 Import
 (
@@ -202,7 +202,7 @@ SystemVerilog는 설계자의 의도를 합성 툴에 명확히 전달하기 위
 ### case ... inside의 비대칭(Asymmetric) 마스킹 기능
 `case ... inside`는 조건 항목(RHS)에 있는 `?`나 `Z`는 Don't Care로 처리하지만, 입력 신호(LHS)로 들어오는 `X`나 `Z`는 절대 Don't Care로 처리하지 않습니다(Asymmetric Masking). 따라서 입력 오류로 인한 맹목적인 조건 매칭을 방지합니다.
 
-```systemverilog
+```verilog
 module test2 (
     input [2:0] sel,
     output logic a, b, c
@@ -223,7 +223,7 @@ endmodule
 ### 파라미터 범위를 활용한 조건 간소화
 `case ... inside`의 또 다른 강력한 기능은 **범위(Range) 매칭**입니다. 다수의 조건을 묶어서 처리해야 할 때 코드를 극적으로 간소화할 수 있습니다.
 
-```systemverilog
+```verilog
 module test3(
     input [4:0] sel_state,
     output logic [4:0] next_state
@@ -260,7 +260,7 @@ SystemVerilog는 설계자의 명시적 의도를 툴에 전달하고 예기치 
 
 SystemVerilog에서는 **리턴 값이 없는 `void function`**의 선언이 가능해졌으며, 함수 내부에서도 `output` 및 `inout` 포트를 자유롭게 정의할 수 있게 되었습니다. 이를 통해 합성 툴에 친화적이면서도 `task`를 대체할 수 있는 조합 회로 모듈화가 가능합니다.
 
-```systemverilog
+```verilog
 function void f_add (
     input [31:0] a,
     output logic [31:0] b, c
@@ -291,7 +291,7 @@ endmodule
 Interface는 설계의 모듈 간 연결 포트(Port)와 통신 프로토콜 관련 신호들을 추상화하여 하나로 묶는 강력한 기능입니다. 패키지(Package)가 전역 파라미터나 타입을 공유한다면, 인터페이스는 신호 다발과 해당 신호들을 조작하는 함수(`function`)를 번들링하는 역할을 합니다. 인터페이스 내부에 선언된 함수 역시 변수에 `automatic`을 지정하여 의도치 않은 상태 보존을 방지해야 합니다.
 
 `interface.sv`
-```systemverilog
+```verilog
 interface test_if;
     import param_pk::N;
 
@@ -310,7 +310,7 @@ endinterface
 ```
 
 `test5.sv` (인터페이스를 포트로 사용)
-```systemverilog
+```verilog
 module test5 import param_pk::N;
 (
     input logic [N-1:0] a,
@@ -344,7 +344,7 @@ endmodule
 ## 11. generate 구문의 간소화
 설계의 자동화를 위해 `generate` 블록을 사용할 때, SystemVerilog는 기존 Verilog-2005에 비해 훨씬 직관적이고 간소화된 문법을 지원합니다. `genvar` 변수를 이용한 `for` 루프를 구성할 때 `generate ... endgenerate` 키워드를 명시하지 않아도 컴파일러가 이를 자동 추론합니다.
 
-```systemverilog
+```verilog
 module test6 (
     input [2:0] a [0:2],
     input [2:0] b [0:2],
