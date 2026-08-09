@@ -144,7 +144,7 @@ Custom Standard Cell을 PnR 툴에서 오류 없이 촘촘하게 배치(Placemen
 
 3. **Routability 및 Crosstalk 분석**
    - DRC를 통과하더라도 `Routability`를 반드시 확인해야 합니다. `Routability`란 cell에 routing을 진행할 때, cell 내부를 routing metal이 가로지를 수 있는 충분한 공간이 확보되었는지를 의미합니다.
-   - 만약, 부적저란 pin 배치에 의해 routability warning이 발생할 경우 routing을 위한 metal이 cell 밖으로 돌아나가야 하는 상황이 발생합니다.
+   - 만약, 부적절한 pin 배치에 의해 routability warning이 발생할 경우 routing을 위한 metal이 cell 밖으로 돌아나가야 하는 상황이 발생합니다.
    - 이 경우 cell의 절대적인 area 외에 routing을 위한 추가적인 cost penalty가 상당히 커지게 됩니다.
    - 또한, multi cells을 상하좌우로 최대한 많이 배치한 상태에서 `Crosstalk` 분석이 필요합니다. 개별 cell 수주에서는 문제가 보이지 않을 수 있지만 routing 과정을 수행한 후 cell 내부의 metal layer와 인접한 routing metals 사이에서 `Crosstalk Noise`가 발생할 수 있기 때문입니다.
 
