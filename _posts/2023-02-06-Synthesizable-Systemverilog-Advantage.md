@@ -327,15 +327,15 @@ endmodule
 
 실제 PYNQ-Z2 FPGA 위에 상기 코드를 합성 및 구현한 결과는 다음 이미지들과 같습니다.
 
-{% include image.html url="[https://user-images.githubusercontent.com/120978778/216857583-140e6b76-b8e9-4a19-b57c-c4ee6d6a72ef.png](https://user-images.githubusercontent.com/120978778/216857583-140e6b76-b8e9-4a19-b57c-c4ee6d6a72ef.png)" text="Figure 1. Hierarchy View" id="figure-1" %}
+{% include image.html url="https://user-images.githubusercontent.com/120978778/216857583-140e6b76-b8e9-4a19-b57c-c4ee6d6a72ef.png" text="Figure 1. Hierarchy View" id="figure-1" %}
 
 계층(Hierarchy) 구조를 살펴보면 인스턴스화된 `test5` 모듈만이 표시됨을 확인할 수 있습니다.
 
-{% include image.html url="[https://user-images.githubusercontent.com/120978778/216857843-e2f4cab5-344d-465a-a8f6-fdddaab9efe0.png](https://user-images.githubusercontent.com/120978778/216857843-e2f4cab5-344d-465a-a8f6-fdddaab9efe0.png)" text="Figure 2. Libraries View" id="figure-2" %}
+{% include image.html url="https://user-images.githubusercontent.com/120978778/216857843-e2f4cab5-344d-465a-a8f6-fdddaab9efe0.png" text="Figure 2. Libraries View" id="figure-2" %}
 
 `package`와 `interface`는 물리적인 모듈 인스턴스가 아니므로 Libraries 영역에 독립적으로 할당되어 참조됩니다.
 
-{% include image.html url="[https://user-images.githubusercontent.com/120978778/216858175-771adbc7-f665-4534-a2a7-5cbe84173459.png](https://user-images.githubusercontent.com/120978778/216858175-771adbc7-f665-4534-a2a7-5cbe84173459.png)" text="Figure 3. Implementation Schematic" id="figure-3" %}
+{% include image.html url="https://user-images.githubusercontent.com/120978778/216858175-771adbc7-f665-4534-a2a7-5cbe84173459.png" text="Figure 3. Implementation Schematic" id="figure-3" %}
 
 최종 Implementation을 거친 Schematic입니다. 컴파일러에 의해 논리가 정상적으로 로직 게이트로 변환되었음을 증명합니다.
 
