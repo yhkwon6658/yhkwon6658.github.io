@@ -85,9 +85,7 @@ print(f'second convolution layer:\t{weights[2].T.shape}') # 64 x 32 x 2 x 2
 
 위 코드에서는 모델을 구성한 뒤, 첫 번째 `Conv2D`와 두 번째 `Conv2D` 계층의 가중치(Weights) 형태(Shape)를 출력하여 확인하고 있습니다.
 
-주석에 명시된 바와 같이, 두 번째 `Conv2D` 계층의 가중치 형태(`weights[2].T.shape`)는 `64 x 32 x 2 x 2`로 나타납니다. 이 계층에서 커널 하나의 크기를 `2x2`로 설정했기 때문에, 실제 사용된 커널의 총 개수는 **64 x 32**개가 됩니다.
-
-즉, Convolution layer의 전체 커널 개수는 다음과 같은 공식으로 정해집니다.
+주석에 명시된 바와 같이, 두 번째 `Conv2D` 계층의 가중치 형태(`weights[2].T.shape`)는 `64 x 32 x 2 x 2`로 나타납니다. 이 계층에서 커널 하나의 크기를 `2x2`로 설정했기 때문에, 실제 사용된 커널의 총 개수는 **64 x 32**개가 됩니다. 즉, Convolution layer의 전체 커널 개수는 다음과 같은 공식으로 정해집니다.
 
 $$
 N_{\text{kernel}} = C_{\text{in}} \times C_{\text{out}} \tag{1}
