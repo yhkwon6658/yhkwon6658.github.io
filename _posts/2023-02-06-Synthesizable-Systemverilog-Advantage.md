@@ -10,7 +10,7 @@ excerpt_separator: ---
 과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다.
 SystemVerilog는 흔히 검증(Verification)을 위한 언어로 인식되는 경향이 있으나, 하드웨어 합성(Synthesis) 측면에서도 기존 Verilog 대비 강력한 이점을 제공합니다. 2005년을 기점으로 Verilog의 IEEE 1364 규약은 SystemVerilog의 IEEE 1800 규약으로 통합되었습니다. 즉, 현대의 설계 환경에서 Verilog는 SystemVerilog의 부분집합으로 이해하는 것이 타당합니다. 
 
-SystemVerilog를 설계에 도입하면 Functional Coding에 있어 코드의 길이를 획기적으로 줄일 수 있으며, `Package`와 `Interface`, `Generate` 구문을 조합하여 설계 자동화 및 모듈화에 크게 기여할 수 있습니다. 또한 Verilog에서 컴파일러가 버그로 판별하지 못하고 묵인하던 모호한 구문들을 에러로 인식하게 함으로써, Synthesis와 Simulation 간의 불일치를 줄이는 데 탁월한 효과를 발휘합니다. 본 포스트에서는 하드웨어 설계 시 유리하게 활용할 수 있는 SystemVerilog의 주요 특징과 문법들을 정리합니다. ---
+SystemVerilog를 설계에 도입하면 Functional Coding에 있어 코드의 길이를 획기적으로 줄일 수 있으며, `Package`와 `Interface`, `Generate` 구문을 조합하여 설계 자동화 및 모듈화에 크게 기여할 수 있습니다. 또한 Verilog에서 컴파일러가 버그로 판별하지 못하고 묵인하던 모호한 구문들을 에러로 인식하게 함으로써, Synthesis와 Simulation 간의 불일치를 줄이는 데 탁월한 효과를 발휘합니다. 본 포스트에서는 하드웨어 설계 시 유리하게 활용할 수 있는 SystemVerilog의 주요 특징과 문법들을 정리합니다.
 
 ---
 
