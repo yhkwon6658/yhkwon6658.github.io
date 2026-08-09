@@ -90,8 +90,13 @@ print(f'second convolution layer:\t{weights[2].T.shape}') # 64 x 32 x 2 x 2
 즉, Convolution layer의 전체 커널 개수는 다음과 같은 공식으로 정해집니다.
 
 $$
-총 커널의 개수 = (입력 피처 맵의 채널 수) × (출력 피처 맵의 채널 수)
+N_{\text{kernel}} = C_{\text{in}} \times C_{\text{out}} \tag{1}
 $$
+
+여기서 각 기호가 의미하는 바는 다음과 같습니다.
+* $N_{\text{kernel}}$ : 총 커널의 개수
+* $C_{\text{in}}$ : 입력 피처 맵의 채널 수 (Input Channels)
+* $C_{\text{out}}$ : 출력 피처 맵의 채널 수 (Output Channels 또는 Filters)
 
 초보자들이 종종 "피처 맵(Feature Map)의 개수와 커널의 개수가 동일하다"고 착각하는 이유는 TensorFlow(Keras) 함수 설계 시 사용된 **파라미터의 명칭** 때문일 가능성이 높습니다.
 
