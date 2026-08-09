@@ -7,7 +7,9 @@ comments: true
 excerpt_separator: ---
 ---
 
-과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. CNN(합성곱 신경망)은 일반적으로 합성곱 계층(Convolution Layer)과 완전 연결 계층(Fully-Connected Layer)으로 이루어진 형태를 기본 구조로 합니다. FC Layer의 역전파(Back-Propagation) 과정은 이미 여러 매체를 통해 자세히 다루어지고 있습니다. 따라서 이번 포스팅에서는 상대적으로 덜 다루어지는 **Convolution Layer의 역전파**를 FC Layer와 동일한 관점과 방식으로 설명해 보고자 합니다.
+과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. 
+
+CNN(합성곱 신경망)은 일반적으로 합성곱 계층(Convolution Layer)과 완전 연결 계층(Fully-Connected Layer)으로 이루어진 형태를 기본 구조로 합니다. FC Layer의 역전파(Back-Propagation) 과정은 이미 여러 매체를 통해 자세히 다루어지고 있습니다. 따라서 이번 포스팅에서는 상대적으로 덜 다루어지는 **Convolution Layer의 역전파**를 FC Layer와 동일한 관점과 방식으로 설명해 보고자 합니다.
 
 ---
 

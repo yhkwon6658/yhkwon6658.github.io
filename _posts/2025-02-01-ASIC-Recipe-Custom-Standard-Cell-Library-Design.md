@@ -8,6 +8,7 @@ excerpt_separator: ---
 ---
 
 과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다.
+
 일반적으로 ASIC 설계 시 파운드리나 IP 벤더에서 제공하는 Standard Cell을 사용하지만, 연구 목적이나 특별한 아키텍처 구현을 위해 **독자적인 로직 셀이나 Flip-flop(FF)** 등을 직접 설계해야 하는 경우가 발생합니다. 이처럼 Full-Custom으로 설계한 특수 회로를 **Synthesis(합성) 및 PnR(Place & Route)** 단계에서 다른 표준 셀들과 함께 사용하려면, PnR 툴이 인식할 수 있는 **표준화된 라이브러리 포맷으로 변환하는 과정**이 필수적입니다.
 
 본 포스팅에서는 ASIC 설계 Flow 중에서도 진입장벽이 높고 복잡한 **Custom Standard Cell Library 설계 및 제작 워크플로우**에 초점을 맞추어 다루도록 하겠습니다.

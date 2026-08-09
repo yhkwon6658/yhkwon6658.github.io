@@ -7,7 +7,9 @@ comments: true
 excerpt_separator: ---
 ---
 
-과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. 기존의 FFT 아키텍처에 대한 연구는 주로 복소수 고속 푸리에 변환(CFFT, Complex Fast Fourier Transform)을 중심으로 진행되었습니다. 본 포스팅에서는 실제 환경에서 입력 데이터의 대부분이 실수(Real Value)라는 점에 착안하여 제안된 논문인 'A Pipelined FFT Architecture for Real-Valued Signals'를 리뷰합니다. 핵심 쟁점인 켤레 대칭(Conjugate Symmetry), RFFT Flow chart 최적화, 그리고 Pipelined RFFT Architecture 제안에 대해 심도 있게 다룹니다. [A Pipelined FFT Architecture for Real-Valued Signals](https://ieeexplore.ieee.org/document/4799153)
+과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. 
+
+기존의 FFT 아키텍처에 대한 연구는 주로 복소수 고속 푸리에 변환(CFFT, Complex Fast Fourier Transform)을 중심으로 진행되었습니다. 본 포스팅에서는 실제 환경에서 입력 데이터의 대부분이 실수(Real Value)라는 점에 착안하여 제안된 논문인 'A Pipelined FFT Architecture for Real-Valued Signals'를 리뷰합니다. 핵심 쟁점인 켤레 대칭(Conjugate Symmetry), RFFT Flow chart 최적화, 그리고 Pipelined RFFT Architecture 제안에 대해 심도 있게 다룹니다. [A Pipelined FFT Architecture for Real-Valued Signals](https://ieeexplore.ieee.org/document/4799153)
 
 ---
 

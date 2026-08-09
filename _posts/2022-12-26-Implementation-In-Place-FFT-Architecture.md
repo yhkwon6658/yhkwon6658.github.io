@@ -7,7 +7,9 @@ comments: true
 excerpt_separator: ---
 ---
 
-과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. 과거 프로젝트로 진행했던 `In-Place FFT Architecture`의 하드웨어 설계 및 구현 과정을 정리한 기록입니다. `Verilog HDL`을 이용해 FPGA에 FFT 아키텍처를 포팅하고, PC와 FPGA 간의 UART 통신을 제어하는 전용 GUI 프로그램을 개발하여 최종적으로 Spectrogram을 출력하는 시스템을 구축했습니다. 
+과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. 
+
+과거 프로젝트로 진행했던 `In-Place FFT Architecture`의 하드웨어 설계 및 구현 과정을 정리한 기록입니다. `Verilog HDL`을 이용해 FPGA에 FFT 아키텍처를 포팅하고, PC와 FPGA 간의 UART 통신을 제어하는 전용 GUI 프로그램을 개발하여 최종적으로 Spectrogram을 출력하는 시스템을 구축했습니다. 
 
 ---
 

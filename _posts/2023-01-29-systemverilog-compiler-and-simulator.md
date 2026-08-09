@@ -7,7 +7,9 @@ comments: true
 excerpt_separator: ---
 ---
 
-과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. Verilog에서 SystemVerilog로 넘어가는 과정에서, Windows 로컬 환경을 지원하는 적절한 무료 컴파일러와 시뮬레이터를 구성하는 것은 매우 중요합니다. 이 글에서는 가장 범용적으로 접근할 수 있는 **Xilinx Vivado**와 **ModelSim (Intel FPGA Starter Edition)**을 활용하여 CLI 환경에서 SystemVerilog를 컴파일하고 시뮬레이션하는 방법을 소개합니다.
+과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다. 
+
+Verilog에서 SystemVerilog로 넘어가는 과정에서, Windows 로컬 환경을 지원하는 적절한 무료 컴파일러와 시뮬레이터를 구성하는 것은 매우 중요합니다. 이 글에서는 가장 범용적으로 접근할 수 있는 **Xilinx Vivado**와 **ModelSim (Intel FPGA Starter Edition)**을 활용하여 CLI 환경에서 SystemVerilog를 컴파일하고 시뮬레이션하는 방법을 소개합니다.
 
 오픈소스인 Icarus Verilog의 경우 `-g2012` 플래그를 통해 SystemVerilog를 일부 지원하지만 완전하지 않으며, Verilator는 성능이 강력한 대신 C++ 변환 등 초기 설정의 허들이 존재합니다. 따라서 상용 툴의 무료 버전을 활용하는 것이 학습 및 검증 목적에서 가장 안정적인 선택이 될 수 있습니다.
 
