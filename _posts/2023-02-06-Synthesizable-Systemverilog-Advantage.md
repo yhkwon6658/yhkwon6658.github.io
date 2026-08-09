@@ -5,9 +5,14 @@ author: "Yonghwan Kwon"
 tags: "Archive"
 comments: true
 excerpt_separator: ---
+---
+
+과거에 작성했던 게시글 중 markdown이 남아있는 글들을 복원하고 있습니다.
 SystemVerilog는 흔히 검증(Verification)을 위한 언어로 인식되는 경향이 있으나, 하드웨어 합성(Synthesis) 측면에서도 기존 Verilog 대비 강력한 이점을 제공합니다. 2005년을 기점으로 Verilog의 IEEE 1364 규약은 SystemVerilog의 IEEE 1800 규약으로 통합되었습니다. 즉, 현대의 설계 환경에서 Verilog는 SystemVerilog의 부분집합으로 이해하는 것이 타당합니다. 
 
 SystemVerilog를 설계에 도입하면 Functional Coding에 있어 코드의 길이를 획기적으로 줄일 수 있으며, `Package`와 `Interface`, `Generate` 구문을 조합하여 설계 자동화 및 모듈화에 크게 기여할 수 있습니다. 또한 Verilog에서 컴파일러가 버그로 판별하지 못하고 묵인하던 모호한 구문들을 에러로 인식하게 함으로써, Synthesis와 Simulation 간의 불일치를 줄이는 데 탁월한 효과를 발휘합니다. 본 포스트에서는 하드웨어 설계 시 유리하게 활용할 수 있는 SystemVerilog의 주요 특징과 문법들을 정리합니다. ---
+
+---
 
 ## 1. Simulation을 위한 bit, Design을 위한 logic
 SystemVerilog에 도입된 새로운 데이터 타입 중 대표적인 것이 `bit`와 `logic`입니다.
@@ -17,6 +22,8 @@ SystemVerilog에 도입된 새로운 데이터 타입 중 대표적인 것이 `b
 `logic`은 기존 Verilog의 `wire`와 `reg`를 모두 대체하여 사용할 수 있습니다. 즉, 설계자는 포트나 내부 신호를 선언할 때 `wire`로 선언할지 `reg`로 선언할지 더 이상 고민할 필요가 없으며, 이는 코드가 복잡해질 때 발생할 수 있는 인적 오류(Human Error)를 방지하는 데 큰 도움이 됩니다. 
 
 주의할 점은 `bit`가 0과 1만을 갖는다는 것은 Simulation 단계에 국한된 특성이라는 것입니다. Synthesis 툴은 하드웨어의 물리적 특성을 반영하여 이를 4-state variable로 간주하고 로직을 합성합니다.
+
+---
 
 ## 2. enum의 활용
 SystemVerilog에 추가된 `enum`은 가독성을 높이고 코드 길이를 단축하는 데 매우 유용합니다.
@@ -38,6 +45,8 @@ enum logic [2:0] {WAITE = 3'b100, LOAD = 3'b010, DONE = 3'b001} State;
 
 기존 Verilog에서는 State Machine을 구현할 때 `localparam`을 나열해야 했으나, `enum`을 사용하면 코드가 훨씬 간결해집니다. 또한 Simulation 파형(Waveform)을 확인할 때, State 값이 단순한 바이너리가 아닌 WAITE, LOAD, DONE 등의 명시적인 텍스트로 바로 표기되므로 디버깅 효율이 크게 향상됩니다.
 
+---
+
 ## 3. typedef (User-Defined-Type)
 SystemVerilog는 C 언어의 `typedef`와 같은 User-Defined-Type (UDT)을 지원합니다. UDT는 `enum`, `struct`와 결합되어 설계를 구조화하는 데 핵심적인 역할을 합니다.
 
@@ -54,6 +63,8 @@ endmodule
 ```
 
 이러한 `typedef` 선언은 이후에 설명할 `struct` 및 `package`와 함께 사용될 때 모듈 간 인터페이스를 극도로 깔끔하게 만들어 주는 시너지를 발휘합니다.
+
+---
 
 ## 4. struct
 SystemVerilog는 신호들을 그룹화할 수 있는 구조체(`struct`)를 지원합니다. `struct`는 내부적으로 다른 `struct`를 중첩하여 포함할 수 있으며, 모듈의 포트나 내부 변수를 선언할 때 유용하게 활용됩니다.
@@ -94,6 +105,8 @@ assign c = p1.a ^ p1.b;
 
 endmodule
 ```
+
+---
 
 ## 5. package
 SystemVerilog가 제공하는 가장 강력한 설계 구조화 도구 중 하나는 `package`입니다. 복잡한 시스템을 다수의 엔지니어가 분업하여 설계할 때, 공통으로 사용될 파라미터나 포트 구조를 사전 정의하지 않으면 치명적인 호환성 문제가 발생합니다. `package`는 이러한 글로벌 정의들을 하나로 묶어 관리합니다.
@@ -165,6 +178,8 @@ endmodule : core2
 ```
 > **주의사항:** 패키지를 참조하는 모듈을 컴파일하기 위해서는 패키지 파일(`package.sv`)이 반드시 **먼저 컴파일(Pre-compile)** 되어 있어야 계층(Hierarchy) 충돌이 발생하지 않습니다.
 
+---
+
 ## 6. Special Procedural Blocks
 기존 Verilog에서는 조합 논리회로(Combinational Logic)와 순차 논리회로(Sequential Logic)를 모두 `always` 블록으로 모델링했습니다. 특히 조합 회로의 경우 민감도 목록(`@*`) 누락이나 의도치 않은 래치(Latch) 추론으로 인해 합성과 시뮬레이션 결과가 틀어지는 버그가 빈번하게 발생했습니다.
 
@@ -174,6 +189,8 @@ SystemVerilog는 설계자의 의도를 합성 툴에 명확히 전달하기 위
 3. `always_latch`: 명시적인 래치 모델링 블록. 
 
 합성 가능한 코드 작성 시 가장 권장되는 방식은 조합 회로에 `always_comb`를 사용하여 의도치 않은 래치 생성을 컴파일 단계에서 원천 차단하는 것입니다.
+
+---
 
 ## 7. case ... inside의 강력함
 기존 Verilog의 `casex`는 X-Propagation(X 상태가 시스템 전체로 전파되는 현상)을 유발할 수 있어 합성 가능한 설계에서는 사용이 금지되는 것이 일반적입니다. 대안으로 사용되는 `casez`의 경우 Z를 Don't Care로 처리하지만, 양방향(Symmetric) 마스킹을 수행한다는 치명적인 단점이 있습니다. 
@@ -222,6 +239,8 @@ end
 endmodule
 ```
 
+---
+
 ## 8. priority와 unique
 `always_comb` 내에서 `case` 구문을 사용할 때 발생할 수 있는 주요 문제점은 다음과 같습니다.
 1. 의도치 않은 래치(Latch) 발생
@@ -233,6 +252,8 @@ SystemVerilog는 설계자의 명시적 의도를 툴에 전달하고 예기치 
 * `unique`: 조건이 단 하나만 매칭되며 동시에 여러 개가 매칭되지 않음을 선언합니다. (Multiple Hits 및 Missing Default 에러 발생)
 
 이는 설계자가 '완벽한 분기 처리를 했다'고 판단할 때 사용하며, 시뮬레이션 단계에서 실수로 조건이 누락되거나 중복되었을 때 경고 메시지를 출력해주어 버그를 조기 차단하는 데 큰 역할을 합니다. 단, 이 키워드들은 래치 생성을 물리적으로 막아주지는 않으므로 **조건문 진입 전 변수를 기본값으로 초기화**하는 습관을 들이는 것이 가장 안전합니다.
+
+---
 
 ## 9. void function의 활용
 과거 Verilog 기반 설계에서는 반복적인 조합 회로를 모듈화하기 위해 주로 `task`를 사용했습니다. Verilog의 `function`은 리턴 값을 하나만 가질 수 있고 `output`이나 `inout` 포트를 사용할 수 없었기 때문입니다. 하지만 합성 툴에서 `task` 처리는 종종 예기치 않은 문제를 발생시키곤 했습니다.
@@ -263,6 +284,8 @@ end
 endmodule
 ```
 > **핵심 원칙:** SystemVerilog는 C언어와 반대로 변수 선언 시 기본적으로 정적(Static) 수명을 가집니다. 따라서 함수 호출 시마다 지역 변수가 독립적으로 초기화되고 할당되도록 하려면, 변수 선언 시 반드시 **`automatic`** 키워드를 명시해야 합니다. 조합 회로를 모델링하기 위한 함수 내부 변수는 항상 `automatic`으로 선언하는 것을 권장합니다.
+
+---
 
 ## 10. Interface
 Interface는 설계의 모듈 간 연결 포트(Port)와 통신 프로토콜 관련 신호들을 추상화하여 하나로 묶는 강력한 기능입니다. 패키지(Package)가 전역 파라미터나 타입을 공유한다면, 인터페이스는 신호 다발과 해당 신호들을 조작하는 함수(`function`)를 번들링하는 역할을 합니다. 인터페이스 내부에 선언된 함수 역시 변수에 `automatic`을 지정하여 의도치 않은 상태 보존을 방지해야 합니다.
@@ -316,6 +339,8 @@ endmodule
 
 최종 Implementation을 거친 Schematic입니다. 컴파일러에 의해 논리가 정상적으로 로직 게이트로 변환되었음을 증명합니다.
 
+---
+
 ## 11. generate 구문의 간소화
 설계의 자동화를 위해 `generate` 블록을 사용할 때, SystemVerilog는 기존 Verilog-2005에 비해 훨씬 직관적이고 간소화된 문법을 지원합니다. `genvar` 변수를 이용한 `for` 루프를 구성할 때 `generate ... endgenerate` 키워드를 명시하지 않아도 컴파일러가 이를 자동 추론합니다.
 
@@ -346,6 +371,8 @@ end
 endmodule
 ```
 이처럼 간결화된 구조는 모듈 인스턴시에이션이나 연속 할당문(Continuous Assignment)의 반복 전개를 훨씬 수월하게 만들어 코드의 유지보수성을 극대화합니다.
+
+---
 
 ## 12. 맺음말
 본 포스트에서 다루지 않은 각종 System Task나 Assertion 등의 세부적인 기법들은 추후 별도의 포스팅을 통해 새롭게 정리하여 공유할 예정입니다.
