@@ -155,7 +155,7 @@ Agent는 파일을 읽고,
 
 작업 시간은 대략 하루 정도였던 것 같습니다.
 
-{% include image.html url="/image/ORFS_PNR_TEST.png" text="Figure 1. Commercial 65 nm PDK를 이용하여 OpenROAD에서 PnR을 수행한 결과" id="fig1" %}
+{% include image.html url="/assets/image/ORFS_PNR_TEST.png" text="Figure 1. Commercial 65 nm PDK를 이용하여 OpenROAD에서 PnR을 수행한 결과" id="fig1" %}
 
 결과적으로 [`Figure 1`](#fig1)처럼 placement, CTS, routing을 거쳐 PnR까지 정상적으로 완료할 수 있었습니다.
 
