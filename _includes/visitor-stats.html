@@ -10,25 +10,35 @@
     <span>Total</span>
     <span id="visitor-total">—</span>
   </div>
+
+  {% if page.collection == "posts" %}
+  <div class="visitor-stat-row">
+    <span>This post</span>
+    <span id="visitor-post">—</span>
+  </div>
+  {% endif %}
 </aside>
 
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
-  const base =
-    "https://yhkwon6658.goatcounter.com/counter/TOTAL.json";
+  const counterBase =
+    "https://yhkwon6658.goatcounter.com/counter/";
+
+  const totalUrl =
+    counterBase + "TOTAL.json";
 
   const now = new Date();
-
   const today =
     now.getFullYear() + "-" +
     String(now.getMonth() + 1).padStart(2, "0") + "-" +
     String(now.getDate()).padStart(2, "0");
 
   try {
-    const [todayResponse, totalResponse] = await Promise.all([
-      fetch(`${base}?start=${today}`),
-      fetch(base)
-    ]);
+    const todayResponse = await fetch(
+      `${totalUrl}?start=${today}`
+    );
+
+    const totalResponse = await fetch(totalUrl);
 
     if (!todayResponse.ok || !totalResponse.ok) {
       throw new Error("GoatCounter request failed");
@@ -42,8 +52,31 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.getElementById("visitor-total").textContent =
       totalData.count;
+
+    const postElement =
+      document.getElementById("visitor-post");
+
+    if (postElement) {
+      const path = location.pathname;
+
+      const postResponse = await fetch(
+        counterBase +
+        encodeURIComponent(path) +
+        ".json"
+      );
+
+      if (postResponse.ok) {
+        const postData = await postResponse.json();
+
+        postElement.textContent =
+          postData.count;
+      }
+    }
   } catch (error) {
-    console.error("Failed to load visitor statistics:", error);
+    console.error(
+      "Failed to load visitor statistics:",
+      error
+    );
   }
 });
 </script>
