@@ -168,30 +168,15 @@
   height: 680px;
 
   background-color: #ffffff;
-}
 
+  iframe {
+    display: block;
 
-/* ==========================================================================
-   Desktop PDF Viewer
-   ========================================================================== */
+    width: 100%;
+    height: 100%;
 
-.pdf-desktop-viewer {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  border: 0;
-}
-
-
-/* ==========================================================================
-   Mobile PDF Viewer
-   Hidden on desktop
-   ========================================================================== */
-
-.pdf-mobile-viewer {
-  display: none;
+    border: 0;
+  }
 }
 
 
@@ -228,8 +213,7 @@
 
 
 /* ==========================================================================
-   Yellow
-   Collapse viewer body only
+   Yellow: collapse PDF body only
    ========================================================================== */
 
 .pdf-widget.collapsed-yellow {
@@ -247,9 +231,7 @@
 
 
 /* ==========================================================================
-   Red
-   Completely collapse widget
-   Match existing code block behavior
+   Red: completely collapse widget
    ========================================================================== */
 
 .pdf-widget.collapsed-red {
@@ -258,11 +240,46 @@
 
   overflow: hidden;
 
-  transition: all 0.3s ease;
+  .pdf-widget-content {
+    display: none;
+  }
+
+  .pdf-widget-header {
+    height: 44px;
+    border-bottom: none;
+  }
+
+  .pdf-window-buttons {
+    top: 16px;
+    left: 15px;
+  }
+
+  .pdf-widget-title,
+  .pdf-open-btn {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   Mobile
+   Header-only PDF widget
+   ========================================================================== */
+
+@media (max-width: 600px) {
+
+  /*
+   * Mobile browsers do not reliably embed PDFs.
+   * Show only the compact document header and external-open button.
+   */
+
+  .pdf-widget {
+    margin: 1.5rem 0;
+  }
 
 
   .pdf-widget-content {
-    display: none;
+    display: none !important;
   }
 
 
@@ -273,171 +290,32 @@
   }
 
 
-  .pdf-window-buttons {
-    top: 16px;
-    left: 15px;
-  }
-
-
-  .pdf-widget-title,
-  .pdf-open-btn {
-    display: none;
-  }
-
-}
-
-
-/* ==========================================================================
-   Mobile
-   ========================================================================== */
-
-@media (max-width: 600px) {
-
-  /*
-   * Do not embed the browser's native PDF viewer on mobile.
-   * Android browsers often display a large placeholder instead.
-   */
-
-  .pdf-widget-body {
-    height: auto;
-
-    background-color: #f7f7f7;
-  }
-
-
-  .pdf-desktop-viewer {
-    display: none;
-  }
-
-
-  .pdf-mobile-viewer {
-    min-height: 280px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 40px 20px;
-
-    text-align: center;
-  }
-
-
-  /* ------------------------------------------------------------------------
-     PDF Icon
-     ------------------------------------------------------------------------ */
-
-  .pdf-mobile-icon {
-    width: 56px;
-    height: 64px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 18px;
-
-    background-color: #dedede;
-
-    border-radius: 7px;
-
-    color: #ffffff;
-
-    font-family:
-      'JetBrains Mono',
-      $monospaced,
-      monospace;
-
-    font-size: 15px;
-    font-weight: 700;
-  }
-
-
-  /* ------------------------------------------------------------------------
-     Filename
-     ------------------------------------------------------------------------ */
-
-  .pdf-mobile-title {
-    width: 100%;
-    max-width: 280px;
-
-    margin-bottom: 22px;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-    text-overflow: ellipsis;
-
-    color: #282c34;
-
-    font-family:
-      'JetBrains Mono',
-      $monospaced,
-      monospace;
-
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-
-  /* ------------------------------------------------------------------------
-     Open PDF Button
-     ------------------------------------------------------------------------ */
-
-  .pdf-mobile-open {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-width: 132px;
-
-    padding: 11px 22px;
-
-    background-color: #282c34;
-
-    border-radius: 7px;
-
-    color: #ffffff !important;
-
-    font-family: $sans-serif;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    text-decoration: none !important;
-
-    transition:
-      background-color 0.2s ease,
-      transform 0.15s ease;
-
-    &:hover {
-      background-color: #353b45;
-    }
-
-    &:active {
-      transform: scale(0.97);
-    }
-  }
-
-
-  /* ------------------------------------------------------------------------
-     Header
-     ------------------------------------------------------------------------ */
-
   .pdf-widget-title {
-    padding-left: 78px;
-    padding-right: 46px;
+    padding-left: 82px;
+    padding-right: 48px;
 
     font-size: 12px;
   }
 
 
-  /* ------------------------------------------------------------------------
-     Collapsed Red
-     Preserve exact compact size on mobile
-     ------------------------------------------------------------------------ */
+  /*
+   * On mobile the widget is already collapsed by design.
+   * Yellow and green therefore keep the same header-only appearance.
+   */
+
+  .pdf-widget.collapsed-yellow {
+    max-width: 100%;
+
+    .pdf-widget-header {
+      height: 44px;
+    }
+  }
+
+
+  /*
+   * Red still behaves like the code block:
+   * shrink to the traffic-light capsule.
+   */
 
   .pdf-widget.collapsed-red {
     height: 44px;
