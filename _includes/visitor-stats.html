@@ -1,0 +1,48 @@
+<aside class="visitor-stats" aria-label="Visitor statistics">
+  <div class="visitor-stats-title">VISITORS</div>
+
+  <div class="visitor-stat-row">
+    <span>Today</span>
+    <span id="visitor-today">—</span>
+  </div>
+
+  <div class="visitor-stat-row">
+    <span>Total</span>
+    <span id="visitor-total">—</span>
+  </div>
+</aside>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const base =
+    "https://yhkwon6658.goatcounter.com/counter/TOTAL.json";
+
+  const now = new Date();
+  const today =
+    now.getFullYear() + "-" +
+    String(now.getMonth() + 1).padStart(2, "0") + "-" +
+    String(now.getDate()).padStart(2, "0");
+
+  try {
+    const [todayResponse, totalResponse] = await Promise.all([
+      fetch(`${base}?start=${today}&end=${today}`),
+      fetch(base)
+    ]);
+
+    if (!todayResponse.ok || !totalResponse.ok) {
+      throw new Error("GoatCounter request failed");
+    }
+
+    const todayData = await todayResponse.json();
+    const totalData = await totalResponse.json();
+
+    document.getElementById("visitor-today").textContent =
+      todayData.count;
+
+    document.getElementById("visitor-total").textContent =
+      totalData.count;
+  } catch (error) {
+    console.error("Failed to load visitor statistics:", error);
+  }
+});
+</script>

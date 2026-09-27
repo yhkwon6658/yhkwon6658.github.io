@@ -123,3 +123,39 @@ footer {
     @include transition(transform .2s ease-in-out);
   }
 }
+
+.visitor-stats {
+  position: fixed;
+  top: 9rem;
+  left: calc(50% + 440px);
+
+  width: 130px;
+  padding-left: 1rem;
+
+  border-left: 1px solid #e0e0e0;
+
+  font-size: 0.75rem;
+  line-height: 1.8;
+
+  color: #777;
+}
+
+.visitor-stats-title {
+  margin-bottom: 0.4rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.visitor-stat-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .visitor-stats {
+    display: none;
+  }
+}
