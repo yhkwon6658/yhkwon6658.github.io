@@ -35,6 +35,10 @@ layout: default
   
 </div>
 
+{% if page.collection == "posts" %}
+  {% include post-toc.html %}
+{% endif %}
+
 {% if page.comments %}
   {% include giscus_comments.html %}
 {% endif %}
