@@ -2,10 +2,27 @@
 
   <div class="pdf-widget-header">
 
-    <div class="pdf-window-buttons" aria-hidden="true">
-      <span class="pdf-window-btn red"></span>
-      <span class="pdf-window-btn yellow"></span>
-      <span class="pdf-window-btn green"></span>
+    <div class="pdf-window-buttons">
+      <button
+        type="button"
+        class="pdf-window-btn red pdf-btn-red"
+        aria-label="Minimize PDF widget"
+        title="Minimize">
+      </button>
+
+      <button
+        type="button"
+        class="pdf-window-btn yellow pdf-btn-yellow"
+        aria-label="Collapse PDF viewer"
+        title="Collapse">
+      </button>
+
+      <button
+        type="button"
+        class="pdf-window-btn green pdf-btn-green"
+        aria-label="Restore PDF viewer"
+        title="Restore">
+      </button>
     </div>
 
     <div class="pdf-widget-title">
@@ -35,23 +52,26 @@
         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
 
       </svg>
-
     </a>
 
   </div>
 
-  <div class="pdf-widget-body">
-    <iframe
-      src="{{ include.url | relative_url }}#view=FitH"
-      title="{{ include.title | default: 'PDF Document' }}"
-      loading="lazy">
-    </iframe>
-  </div>
+  <div class="pdf-widget-content">
 
-  {% if include.caption %}
-  <div class="pdf-widget-caption">
-    {{ include.caption }}
+    <div class="pdf-widget-body">
+      <iframe
+        src="{{ include.url | relative_url }}#view=FitH"
+        title="{{ include.title | default: 'PDF Document' }}"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    {% if include.caption %}
+    <div class="pdf-widget-caption">
+      {{ include.caption }}
+    </div>
+    {% endif %}
+
   </div>
-  {% endif %}
 
 </div>

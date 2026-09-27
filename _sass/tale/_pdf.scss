@@ -4,15 +4,16 @@
 
 .pdf-widget {
   margin: 2rem 0;
-  border-radius: 8px;
+  max-width: 100%;
+
   overflow: hidden;
 
   background-color: #282c34;
 
+  border-radius: 8px;
+
   box-shadow:
     0 4px 10px rgba(0, 0, 0, 0.3);
-
-  max-width: 100%;
 }
 
 
@@ -21,9 +22,9 @@
    ========================================================================== */
 
 .pdf-widget-header {
-  height: 44px;
-
   position: relative;
+
+  height: 44px;
 
   display: flex;
   align-items: center;
@@ -32,8 +33,6 @@
     1px solid rgba(255, 255, 255, 0.08);
 }
 
-
-/* macOS-style buttons */
 
 .pdf-window-buttons {
   position: absolute;
@@ -45,11 +44,29 @@
   gap: 8px;
 }
 
+
 .pdf-window-btn {
   width: 12px;
   height: 12px;
 
+  padding: 0;
+
+  border: none;
   border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    filter 0.15s ease,
+    transform 0.15s ease;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
 
   &.red {
     background-color: #ff5f56;
@@ -64,8 +81,6 @@
   }
 }
 
-
-/* Filename / document title */
 
 .pdf-widget-title {
   width: 100%;
@@ -87,8 +102,6 @@
   font-weight: 600;
 }
 
-
-/* Open external button */
 
 .pdf-open-btn {
   position: absolute;
@@ -123,13 +136,22 @@
 
 
 /* ==========================================================================
-   PDF
+   Content
    ========================================================================== */
 
-.pdf-widget-body {
-  background-color: #ffffff;
+.pdf-widget-content {
+  overflow: hidden;
 
+  transition:
+    max-height 0.28s ease,
+    opacity 0.2s ease;
+}
+
+
+.pdf-widget-body {
   height: 680px;
+
+  background-color: #ffffff;
 
   iframe {
     display: block;
@@ -141,10 +163,6 @@
   }
 }
 
-
-/* ==========================================================================
-   Caption
-   ========================================================================== */
 
 .pdf-widget-caption {
   padding: 9px 14px 10px;
@@ -160,6 +178,49 @@
   font-style: italic;
 
   text-align: center;
+}
+
+
+/* ==========================================================================
+   Yellow: collapse body only
+   ========================================================================== */
+
+.pdf-widget.collapsed-yellow .pdf-widget-content {
+  max-height: 0;
+  opacity: 0;
+}
+
+.pdf-widget:not(.collapsed-yellow):not(.collapsed-red)
+  .pdf-widget-content {
+  max-height: 1200px;
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   Red: minimize whole widget
+   ========================================================================== */
+
+.pdf-widget.collapsed-red {
+  .pdf-widget-content {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .pdf-widget-header {
+    height: 32px;
+
+    border-bottom: none;
+  }
+
+  .pdf-window-buttons {
+    top: 10px;
+  }
+
+  .pdf-widget-title,
+  .pdf-open-btn {
+    display: none;
+  }
 }
 
 
