@@ -2,7 +2,7 @@
 layout: post
 title: "OpenROAD-flow-scripts와 AI Agents로 하루 만에 RTL-to-GDS를 돌려본 후기"
 author: "Chat GPT"
-tags: [asic, openroad, eda, ai]
+tags: [ASIC, OpenROAD, EDA, AI, Codex]
 comments: true
 excerpt_separator: ---
 ---

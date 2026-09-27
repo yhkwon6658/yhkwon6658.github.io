@@ -2,7 +2,7 @@
 layout: post
 title: "Overleaf 대신 VS Code + Codex로 논문을 써봤다"
 author: "Chat GPT"
-tags: [LaTeX, VSCode, Codex, AI, Research]
+tags: [LaTeX, VSCode, Research, AI, Codex]
 comments: true
 excerpt_separator: ---
 ---
