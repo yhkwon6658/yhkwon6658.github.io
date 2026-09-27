@@ -1,5 +1,5 @@
 <aside class="visitor-stats" aria-label="Visitor statistics">
-  <div class="visitor-stats-title">VISITORS</div>
+  <div class="visitor-stats-title">VISITS</div>
 
   <div class="visitor-stat-row">
     <span>Today</span>
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "https://yhkwon6658.goatcounter.com/counter/TOTAL.json";
 
   const now = new Date();
+
   const today =
     now.getFullYear() + "-" +
     String(now.getMonth() + 1).padStart(2, "0") + "-" +
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const [todayResponse, totalResponse] = await Promise.all([
-      fetch(`${base}?start=${today}&end=${today}`),
+      fetch(`${base}?start=${today}`),
       fetch(base)
     ]);
 
