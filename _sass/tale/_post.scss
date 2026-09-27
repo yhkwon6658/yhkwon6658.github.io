@@ -232,9 +232,17 @@ body.dark-mode {
     border-left-color: rgba(255, 255, 255, 0.3);
   }
 
-  .post-toc-list a:hover,
+  .post-toc-list a {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .post-toc-list a:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
   .post-toc-list a.active {
-    color: rgba(255, 255, 255, 0.9);
+    color: #ffffff;
+    font-weight: 600;
   }
 }
 
