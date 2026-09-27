@@ -93,12 +93,27 @@ Text와 LaTeX source는 Agent가 비교적 잘 다룰 것이라고 예상했습�
 
 문제는 Figure였습니다.
 
-테스트를 위해 Figure까지 제가 직접 그리고 싶지는 않았기 때문에, Draw.io를 이용해 Agent가 SVG를 직접 생성하도록 환경을 구성했습니다.
+테스트를 위해 Figure까지 제가 직접 그리고 싶지는 않았기 때문에, Draw.io를 이용해 Agent가 SVG를 직접 생성하도록 환경을 구성했습니다: Draw.io를 중간 representation처럼 사용하고, 최종 결과는 SVG로 export하도록 구성했습니다.
 
 최종 산출물을 SVG로 정한 이유는 간단합니다.
 
 SVG는 XML 기반의 text format이기 때문에 Agent가 직접 읽고 수정할 수 있습니다.  
 따라서 단순히 이미지를 생성하는 것보다 layout, text, line, color 등의 요소를 반복적으로 수정하기 훨씬 좋습니다.
+
+여기서 한 가지 주의할 점도 있었습니다.
+
+Agent에게 단순히 SVG를 생성하라고 하면 text를 native SVG `<text>` element가 아니라 `foreignObject` 안의 HTML text로 넣는 경우가 있습니다.
+
+브라우저에서 볼 때는 큰 문제가 없어 보이지만, 이 SVG를 **Inkscape를 이용해 PDF로 변환하거나 LaTeX workflow에 넣을 때 text가 깨지거나 제대로 렌더링되지 않는 문제**가 발생할 수 있었습니다.
+
+그래서 Figure generation specification에는 아예 다음 조건을 명시했습니다.
+
+> All text must be stored as native SVG `<text>` elements.  
+> Do not use HTML text or `foreignObject`.
+
+이 조건을 넣고 나서야 SVG를 Inkscape 기반의 PDF conversion workflow에서도 안정적으로 사용할 수 있었습니다.
+
+즉, 논문 Figure용 SVG를 Agent에게 생성시킬 때는 단순히 "SVG로 만들어라"가 아니라, **native SVG로 생성하도록 강제하는 것이 중요했습니다.**
 
 이 부분을 셋업하면서 여러 모델을 비교해보기도 했는데, Figure generation에서는 모델 간 차이가 상당히 크게 느껴졌습니다.
 
