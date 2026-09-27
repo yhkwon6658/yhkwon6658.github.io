@@ -3,6 +3,7 @@
   <div class="pdf-widget-header">
 
     <div class="pdf-window-buttons">
+
       <button
         type="button"
         class="pdf-window-btn red pdf-btn-red"
@@ -23,6 +24,7 @@
         aria-label="Restore PDF viewer"
         title="Restore">
       </button>
+
     </div>
 
     <div class="pdf-widget-title">
@@ -52,19 +54,48 @@
         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
 
       </svg>
+
     </a>
 
   </div>
 
+
   <div class="pdf-widget-content">
 
     <div class="pdf-widget-body">
+
+      <!-- Desktop PDF viewer -->
       <iframe
+        class="pdf-desktop-viewer"
         src="{{ include.url | relative_url }}#view=FitH"
         title="{{ include.title | default: 'PDF Document' }}"
         loading="lazy">
       </iframe>
+
+
+      <!-- Mobile fallback -->
+      <div class="pdf-mobile-viewer">
+
+        <div class="pdf-mobile-icon">
+          PDF
+        </div>
+
+        <div class="pdf-mobile-title">
+          {{ include.title | default: "PDF Document" }}
+        </div>
+
+        <a
+          class="pdf-mobile-open"
+          href="{{ include.url | relative_url }}"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open PDF
+        </a>
+
+      </div>
+
     </div>
+
 
     {% if include.caption %}
     <div class="pdf-widget-caption">
